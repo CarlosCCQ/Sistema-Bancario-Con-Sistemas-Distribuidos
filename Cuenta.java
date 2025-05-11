@@ -1,4 +1,4 @@
-package src;
+
 public class Cuenta {
     private final int id;
     private final int idCliente;

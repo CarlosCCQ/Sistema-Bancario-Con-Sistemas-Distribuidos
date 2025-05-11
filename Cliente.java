@@ -1,4 +1,4 @@
-package src;
+
 public class Cliente {
     private final int id;
     private final String nombre;
