@@ -1,0 +1,192 @@
+package src;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.ServerSocket;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+public class NodoTrabajador {
+    private final int id;
+    private final String ipServidor;
+    private final int puertoServidor;
+    private final String ipNodo;
+    private final int puertoNodo;
+    private final String rutaDatos;
+    private final Map<Integer, Particion> particiones;
+    private volatile boolean running;
+    private ServerSocket serverSocket;
+    private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+
+    public NodoTrabajador(int id, String ipServidor, int puertoServidor, String ipNodo, int puertoNodo, String rutaDatos) {
+        this.id = id;
+        this.ipServidor = ipServidor;
+        this.puertoServidor = puertoServidor;
+        this.ipNodo = ipNodo;
+        this.puertoNodo = puertoNodo;
+        this.rutaDatos = rutaDatos;
+        this.particiones = new ConcurrentHashMap<>();
+        cargarParticiones();
+    }
+
+    private void cargarParticiones() {
+        try (var archivos = Files.list(Paths.get(rutaDatos))) {
+            archivos.forEach(path -> {
+                try {
+                    String nombre = path.getFileName().toString();
+                    String[] partes = nombre.split("_");
+                    int particion = Integer.parseInt(partes[2]);
+                    particiones.put(particion, new Particion(path.toString()));
+                } catch (Exception e) {
+                    System.err.println("Error cargando archivo " + path + ": " + e.getMessage());
+                }
+            });
+        } catch (IOException e) {
+            System.err.println("Error accediendo a " + rutaDatos + ": " + e.getMessage());
+        }
+    }
+
+    public void iniciar() {
+        running = true;
+        new Thread(this::iniciarServidor).start();
+        new Thread(this::gestionarConexionServidor).start();
+    }
+
+    private void iniciarServidor() {
+        try (ServerSocket serverSocket = new ServerSocket(puertoNodo)) {
+            System.out.println("Nodo " + id + " escuchando en " + ipNodo + ":" + puertoNodo);
+            while (running) {
+                Socket socket = serverSocket.accept();
+                new Thread(() -> procesarConexion(socket)).start();
+            }
+        } catch (IOException e) {
+            System.err.println("Error iniciando servidor del nodo: " + e.getMessage());
+        }
+    }
+
+    private void gestionarConexionServidor() {
+        while (running) {
+            try (Socket socket = new Socket(ipServidor, puertoServidor + 1);
+                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+                
+                registrarEnServidor(out);
+                while (running) {
+                    Thread.sleep(5000);
+                    enviarHeartbeat(out);
+                }
+            } catch (Exception e) {
+                System.err.println("Reconectando en 5 segundos...");
+                dormir(5000);
+            }
+        }
+    }
+
+    private void registrarEnServidor(PrintWriter out) {
+        String particionesStr = particiones.keySet().stream()
+                .map(p -> "CUENTA:" + p)
+                .reduce((a, b) -> a + ";" + b).orElse("");
+        String mensaje = String.format("REGISTRO|%d|%s|%d|%s", id, ipNodo, puertoNodo, particionesStr);
+        out.println(mensaje);
+    }
+
+    private void enviarHeartbeat(PrintWriter out) {
+        out.println("HEARTBEAT|" + id);
+    }
+
+    private void procesarConexion(Socket socket) {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+            
+            String mensaje;
+            while ((mensaje = in.readLine()) != null) {
+                String[] partes = mensaje.split("\\|");
+                switch (partes[0]) {
+                    case "CONSULTAR" -> procesarConsulta(partes[1], out);
+                    case "TRANSFERIR" -> procesarTransferencia(partes[1], partes[2], partes[3], out);
+                    case "ARQUEO" -> procesarArqueo(out);
+                    case "HEARTBEAT" -> out.println("OK");
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error en conexión: " + e.getMessage());
+        }
+    }
+
+    private void procesarConsulta(String idCuentaStr, PrintWriter out) {
+        int idCuenta = Integer.parseInt(idCuentaStr);
+        int particion = hashParticion(idCuenta);
+        Particion p = particiones.get(particion);
+        
+        if (p == null) {
+            out.println("ERROR|PARTICION_NO_LOCAL");
+            return;
+        }
+        Cuenta cuenta = p.getCuenta(idCuenta);
+        out.println(cuenta != null ? "SALDO|" + cuenta.getSaldo() : "ERROR|CUENTA_NO_EXISTE");
+    }
+
+    private void procesarTransferencia(String origenStr, String destinoStr, String montoStr, PrintWriter out) {
+        int origen = Integer.parseInt(origenStr);
+        int destino = Integer.parseInt(destinoStr);
+        double monto = Double.parseDouble(montoStr);
+        int particion = hashParticion(origen);
+        Particion p = particiones.get(particion);
+        
+        if (p == null) {
+            out.println("ERROR|PARTICION_NO_LOCAL");
+            return;
+        }
+        
+        lock.writeLock().lock();
+        try {
+            boolean exito = p.transferir(origen, destino, monto);
+            out.println(exito ? "OK" : "ERROR|SALDO_INSUFICIENTE");
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+
+    private void procesarArqueo(PrintWriter out) {
+        lock.readLock().lock();
+        try {
+            double total = particiones.values().stream()
+                .mapToDouble(Particion::arqueoLocal)
+                .sum();
+            out.printf("ARQUEO|%.2f%n", total);
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+
+    private int hashParticion(int id) {
+        return (Math.abs(id) % 3) + 1;
+    }
+
+    private static void dormir(int ms) {
+        try { 
+            Thread.sleep(ms); 
+        } catch (InterruptedException e) { 
+            Thread.currentThread().interrupt(); 
+        }
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 6) {
+            System.err.println("Uso: NodoTrabajador <id> <ipServidor> <puertoServidor> <ipNodo> <puertoNodo> <rutaDatos>");
+            return;
+        }
+        new NodoTrabajador(
+            Integer.parseInt(args[0]),
+            args[1],
+            Integer.parseInt(args[2]),
+            args[3],
+            Integer.parseInt(args[4]),
+            args[5]
+        ).iniciar();
+    }
+}
