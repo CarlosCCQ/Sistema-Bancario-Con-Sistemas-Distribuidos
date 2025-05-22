@@ -1,0 +1,677 @@
+CLIENTE|1|Carmen González|carmengonzález@email.com|999700640
+CLIENTE|514|Laura Díaz|lauradíaz@email.com|934846140
+CLIENTE|4|Carmen Rodríguez|carmenrodríguez@email.com|956793846
+CLIENTE|517|Luis Rodríguez|luisrodríguez@email.com|910242643
+CLIENTE|7|Carlos Martín|carlosmartín@email.com|914045233
+CLIENTE|520|Ana García|anagarcía@email.com|990188657
+CLIENTE|10|Juan Martín|juanmartín@email.com|946250321
+CLIENTE|523|Juan López|juanlópez@email.com|927287733
+CLIENTE|13|Luis Díaz|luisdíaz@email.com|927798792
+CLIENTE|526|María Pérez|maríapérez@email.com|954118914
+CLIENTE|16|Pedro López|pedrolópez@email.com|935864494
+CLIENTE|529|Carlos García|carlosgarcía@email.com|960482682
+CLIENTE|19|Luis Díaz|luisdíaz@email.com|991703608
+CLIENTE|532|Carlos López|carloslópez@email.com|925804547
+CLIENTE|22|Laura López|lauralópez@email.com|933376192
+CLIENTE|535|Carmen Martín|carmenmartín@email.com|951137866
+CLIENTE|25|Carlos Pérez|carlospérez@email.com|948022665
+CLIENTE|538|Pedro González|pedrogonzález@email.com|944234504
+CLIENTE|28|María Pérez|maríapérez@email.com|938356542
+CLIENTE|541|Juan Rodríguez|juanrodríguez@email.com|919397057
+CLIENTE|31|Pedro Rodríguez|pedrorodríguez@email.com|937907128
+CLIENTE|544|Carmen López|carmenlópez@email.com|981528567
+CLIENTE|34|Carmen Díaz|carmendíaz@email.com|936963883
+CLIENTE|547|Carlos López|carloslópez@email.com|908983632
+CLIENTE|37|Ana González|anagonzález@email.com|917988180
+CLIENTE|550|Carlos Pérez|carlospérez@email.com|949201393
+CLIENTE|40|Laura Martín|lauramartín@email.com|955777737
+CLIENTE|553|Luis López|luislópez@email.com|964695480
+CLIENTE|43|Carmen Martín|carmenmartín@email.com|959560254
+CLIENTE|556|Ana González|anagonzález@email.com|929731557
+CLIENTE|46|María González|maríagonzález@email.com|938701607
+CLIENTE|559|Carlos García|carlosgarcía@email.com|996668710
+CLIENTE|49|Laura Martín|lauramartín@email.com|972112325
+CLIENTE|562|Carmen González|carmengonzález@email.com|927168441
+CLIENTE|52|Laura González|lauragonzález@email.com|924322124
+CLIENTE|565|Ana López|analópez@email.com|904723702
+CLIENTE|55|Carmen Díaz|carmendíaz@email.com|979881061
+CLIENTE|568|Carlos Sánchez|carlossánchez@email.com|915006494
+CLIENTE|58|Juan Pérez|juanpérez@email.com|915313415
+CLIENTE|571|Carmen González|carmengonzález@email.com|973736207
+CLIENTE|61|Carlos Rodríguez|carlosrodríguez@email.com|958760483
+CLIENTE|574|Carlos Sánchez|carlossánchez@email.com|908954360
+CLIENTE|64|Luis Díaz|luisdíaz@email.com|973720924
+CLIENTE|577|Pedro Sánchez|pedrosánchez@email.com|906081247
+CLIENTE|67|Juan Sánchez|juansánchez@email.com|933875854
+CLIENTE|580|María Pérez|maríapérez@email.com|955023214
+CLIENTE|70|Carlos González|carlosgonzález@email.com|979620501
+CLIENTE|583|Ana Sánchez|anasánchez@email.com|992794365
+CLIENTE|73|María González|maríagonzález@email.com|954579037
+CLIENTE|586|Carmen González|carmengonzález@email.com|963048348
+CLIENTE|76|Ana Martín|anamartín@email.com|979640043
+CLIENTE|589|Juan Díaz|juandíaz@email.com|994426465
+CLIENTE|79|Luis García|luisgarcía@email.com|986361000
+CLIENTE|592|Carlos González|carlosgonzález@email.com|967233499
+CLIENTE|82|Carlos Sánchez|carlossánchez@email.com|940233176
+CLIENTE|595|Ana Martín|anamartín@email.com|996523081
+CLIENTE|85|Carlos López|carloslópez@email.com|950177229
+CLIENTE|598|María Sánchez|maríasánchez@email.com|920926385
+CLIENTE|88|Laura García|lauragarcía@email.com|967067651
+CLIENTE|601|Luis Martín|luismartín@email.com|966038449
+CLIENTE|91|Ana García|anagarcía@email.com|948994793
+CLIENTE|604|Pedro López|pedrolópez@email.com|920617827
+CLIENTE|94|Laura Díaz|lauradíaz@email.com|974853070
+CLIENTE|607|Laura Rodríguez|laurarodríguez@email.com|982759287
+CLIENTE|97|María Díaz|maríadíaz@email.com|968809719
+CLIENTE|610|Juan Sánchez|juansánchez@email.com|975619612
+CLIENTE|100|María García|maríagarcía@email.com|941031047
+CLIENTE|613|Carlos Sánchez|carlossánchez@email.com|986123793
+CLIENTE|103|Carmen Sánchez|carmensánchez@email.com|952997521
+CLIENTE|616|Pedro Díaz|pedrodíaz@email.com|929600192
+CLIENTE|106|Juan Martín|juanmartín@email.com|992682034
+CLIENTE|619|Carmen López|carmenlópez@email.com|991541493
+CLIENTE|109|Juan Rodríguez|juanrodríguez@email.com|952630346
+CLIENTE|622|Juan López|juanlópez@email.com|932636762
+CLIENTE|112|Carmen Martín|carmenmartín@email.com|987147512
+CLIENTE|625|Pedro García|pedrogarcía@email.com|910552972
+CLIENTE|115|Pedro Sánchez|pedrosánchez@email.com|982679980
+CLIENTE|628|Luis Martín|luismartín@email.com|921105958
+CLIENTE|118|Pedro Pérez|pedropérez@email.com|940707894
+CLIENTE|631|Luis Rodríguez|luisrodríguez@email.com|907390939
+CLIENTE|121|Carmen García|carmengarcía@email.com|998360796
+CLIENTE|634|Pedro Rodríguez|pedrorodríguez@email.com|911530052
+CLIENTE|124|Juan Rodríguez|juanrodríguez@email.com|918799404
+CLIENTE|637|Luis Díaz|luisdíaz@email.com|982417847
+CLIENTE|127|María González|maríagonzález@email.com|904705487
+CLIENTE|640|Laura Pérez|laurapérez@email.com|937592834
+CLIENTE|130|Laura González|lauragonzález@email.com|952093000
+CLIENTE|643|Carmen García|carmengarcía@email.com|910556843
+CLIENTE|133|Luis Pérez|luispérez@email.com|907118896
+CLIENTE|646|Ana García|anagarcía@email.com|921119693
+CLIENTE|136|Luis Sánchez|luissánchez@email.com|904835095
+CLIENTE|649|Juan Díaz|juandíaz@email.com|917604464
+CLIENTE|139|Juan López|juanlópez@email.com|923198681
+CLIENTE|652|Luis López|luislópez@email.com|920705212
+CLIENTE|142|Carlos González|carlosgonzález@email.com|920209104
+CLIENTE|655|Pedro García|pedrogarcía@email.com|910005264
+CLIENTE|145|Laura Pérez|laurapérez@email.com|989229042
+CLIENTE|658|Ana García|anagarcía@email.com|973910976
+CLIENTE|148|Carlos Sánchez|carlossánchez@email.com|969314181
+CLIENTE|661|Luis López|luislópez@email.com|980845729
+CLIENTE|151|Pedro Martín|pedromartín@email.com|915503026
+CLIENTE|664|Ana Pérez|anapérez@email.com|999897972
+CLIENTE|154|Pedro Pérez|pedropérez@email.com|908387566
+CLIENTE|667|Juan Martín|juanmartín@email.com|927800226
+CLIENTE|157|Luis Martín|luismartín@email.com|967785656
+CLIENTE|670|Ana Díaz|anadíaz@email.com|910844037
+CLIENTE|160|Luis Rodríguez|luisrodríguez@email.com|992807132
+CLIENTE|673|Ana González|anagonzález@email.com|923005692
+CLIENTE|163|Juan Sánchez|juansánchez@email.com|965454093
+CLIENTE|676|Ana González|anagonzález@email.com|961475782
+CLIENTE|166|María Díaz|maríadíaz@email.com|949331775
+CLIENTE|679|Pedro Rodríguez|pedrorodríguez@email.com|963886752
+CLIENTE|169|María López|maríalópez@email.com|962662594
+CLIENTE|682|Pedro García|pedrogarcía@email.com|987810524
+CLIENTE|172|Ana García|anagarcía@email.com|940151773
+CLIENTE|685|Luis González|luisgonzález@email.com|927468735
+CLIENTE|175|María González|maríagonzález@email.com|970215721
+CLIENTE|688|Carmen López|carmenlópez@email.com|935605385
+CLIENTE|178|Luis García|luisgarcía@email.com|930119320
+CLIENTE|691|Pedro Martín|pedromartín@email.com|958933427
+CLIENTE|181|Juan Díaz|juandíaz@email.com|931650233
+CLIENTE|694|Carmen González|carmengonzález@email.com|932315807
+CLIENTE|184|María Sánchez|maríasánchez@email.com|951810337
+CLIENTE|697|Juan González|juangonzález@email.com|961925745
+CLIENTE|187|María González|maríagonzález@email.com|937112815
+CLIENTE|700|Carlos López|carloslópez@email.com|938453130
+CLIENTE|190|Pedro Rodríguez|pedrorodríguez@email.com|943883922
+CLIENTE|703|Juan Pérez|juanpérez@email.com|953835695
+CLIENTE|193|Pedro Martín|pedromartín@email.com|913500924
+CLIENTE|706|Ana Martín|anamartín@email.com|989512834
+CLIENTE|196|María García|maríagarcía@email.com|960471480
+CLIENTE|709|Carmen González|carmengonzález@email.com|981534625
+CLIENTE|199|Juan García|juangarcía@email.com|940666089
+CLIENTE|712|Luis Pérez|luispérez@email.com|937337172
+CLIENTE|202|Laura González|lauragonzález@email.com|945110507
+CLIENTE|715|Ana Díaz|anadíaz@email.com|915758164
+CLIENTE|205|Pedro Martín|pedromartín@email.com|929583431
+CLIENTE|718|Carmen Martín|carmenmartín@email.com|952076757
+CLIENTE|208|Carlos Martín|carlosmartín@email.com|914399141
+CLIENTE|721|Laura Martín|lauramartín@email.com|949760940
+CLIENTE|211|Ana Díaz|anadíaz@email.com|948182690
+CLIENTE|724|María Díaz|maríadíaz@email.com|944153835
+CLIENTE|214|Pedro Sánchez|pedrosánchez@email.com|983006334
+CLIENTE|727|Carlos González|carlosgonzález@email.com|995898375
+CLIENTE|217|Laura González|lauragonzález@email.com|944128713
+CLIENTE|730|María Pérez|maríapérez@email.com|997535551
+CLIENTE|220|María González|maríagonzález@email.com|990087487
+CLIENTE|733|Ana López|analópez@email.com|931759734
+CLIENTE|223|Ana García|anagarcía@email.com|954317364
+CLIENTE|736|Laura López|lauralópez@email.com|971896714
+CLIENTE|226|Juan Pérez|juanpérez@email.com|913357333
+CLIENTE|739|Laura Martín|lauramartín@email.com|917275804
+CLIENTE|229|Juan González|juangonzález@email.com|955471495
+CLIENTE|742|Carmen Pérez|carmenpérez@email.com|925049987
+CLIENTE|232|Laura Pérez|laurapérez@email.com|977865455
+CLIENTE|745|Pedro Rodríguez|pedrorodríguez@email.com|936058670
+CLIENTE|235|María Díaz|maríadíaz@email.com|997641276
+CLIENTE|748|Pedro Martín|pedromartín@email.com|944101739
+CLIENTE|238|Pedro Martín|pedromartín@email.com|996551147
+CLIENTE|751|Juan García|juangarcía@email.com|988259855
+CLIENTE|241|Luis Pérez|luispérez@email.com|914570853
+CLIENTE|754|Juan Martín|juanmartín@email.com|908760894
+CLIENTE|244|Laura López|lauralópez@email.com|949157618
+CLIENTE|757|Juan Martín|juanmartín@email.com|945146126
+CLIENTE|247|Luis López|luislópez@email.com|998268311
+CLIENTE|760|Pedro Sánchez|pedrosánchez@email.com|912850558
+CLIENTE|250|Carlos González|carlosgonzález@email.com|922783851
+CLIENTE|763|Laura Martín|lauramartín@email.com|945424965
+CLIENTE|253|Juan García|juangarcía@email.com|989974507
+CLIENTE|766|Juan Rodríguez|juanrodríguez@email.com|981563813
+CLIENTE|256|Juan Rodríguez|juanrodríguez@email.com|903371284
+CLIENTE|769|María Rodríguez|maríarodríguez@email.com|981285399
+CLIENTE|259|Juan Pérez|juanpérez@email.com|924345894
+CLIENTE|772|Luis Martín|luismartín@email.com|991957807
+CLIENTE|262|María Sánchez|maríasánchez@email.com|940234997
+CLIENTE|775|Pedro López|pedrolópez@email.com|973477070
+CLIENTE|265|María Díaz|maríadíaz@email.com|998758657
+CLIENTE|778|Luis Martín|luismartín@email.com|998718282
+CLIENTE|268|Carmen González|carmengonzález@email.com|991853687
+CLIENTE|781|Pedro Sánchez|pedrosánchez@email.com|933080279
+CLIENTE|271|María González|maríagonzález@email.com|969991051
+CLIENTE|784|María Rodríguez|maríarodríguez@email.com|912698915
+CLIENTE|274|Ana López|analópez@email.com|926217369
+CLIENTE|787|Ana Díaz|anadíaz@email.com|907459492
+CLIENTE|277|Carlos González|carlosgonzález@email.com|957889971
+CLIENTE|790|Laura Pérez|laurapérez@email.com|923419606
+CLIENTE|280|María Martín|maríamartín@email.com|982563403
+CLIENTE|793|Luis Rodríguez|luisrodríguez@email.com|958853158
+CLIENTE|283|Juan González|juangonzález@email.com|960798959
+CLIENTE|796|Carmen Díaz|carmendíaz@email.com|924675322
+CLIENTE|286|Juan Martín|juanmartín@email.com|901520680
+CLIENTE|799|Pedro Pérez|pedropérez@email.com|993871852
+CLIENTE|289|María Martín|maríamartín@email.com|981042717
+CLIENTE|802|Luis Pérez|luispérez@email.com|918052047
+CLIENTE|292|Carmen García|carmengarcía@email.com|964691070
+CLIENTE|805|Pedro Rodríguez|pedrorodríguez@email.com|966396131
+CLIENTE|295|Laura Rodríguez|laurarodríguez@email.com|943715113
+CLIENTE|808|Carmen Martín|carmenmartín@email.com|930273293
+CLIENTE|298|María Martín|maríamartín@email.com|973131751
+CLIENTE|811|Ana Díaz|anadíaz@email.com|991545522
+CLIENTE|301|María García|maríagarcía@email.com|915157172
+CLIENTE|814|Carlos González|carlosgonzález@email.com|935207506
+CLIENTE|304|Laura Pérez|laurapérez@email.com|984454957
+CLIENTE|817|Juan Sánchez|juansánchez@email.com|941166521
+CLIENTE|307|Laura Rodríguez|laurarodríguez@email.com|990751603
+CLIENTE|820|Ana García|anagarcía@email.com|972522032
+CLIENTE|310|Carlos García|carlosgarcía@email.com|967332405
+CLIENTE|823|María Sánchez|maríasánchez@email.com|994003375
+CLIENTE|313|Carlos Sánchez|carlossánchez@email.com|903856115
+CLIENTE|826|Ana Martín|anamartín@email.com|935744728
+CLIENTE|316|Carmen Martín|carmenmartín@email.com|957479227
+CLIENTE|829|Carlos Díaz|carlosdíaz@email.com|963315935
+CLIENTE|319|Ana Martín|anamartín@email.com|948020381
+CLIENTE|832|María Rodríguez|maríarodríguez@email.com|950118511
+CLIENTE|322|Carlos Rodríguez|carlosrodríguez@email.com|929079888
+CLIENTE|835|Pedro López|pedrolópez@email.com|931805190
+CLIENTE|325|Juan Rodríguez|juanrodríguez@email.com|946748773
+CLIENTE|838|María Martín|maríamartín@email.com|958977524
+CLIENTE|328|Pedro López|pedrolópez@email.com|929953722
+CLIENTE|841|Luis Pérez|luispérez@email.com|968166354
+CLIENTE|331|Pedro Díaz|pedrodíaz@email.com|975795680
+CLIENTE|844|Luis García|luisgarcía@email.com|945616339
+CLIENTE|334|Carmen Sánchez|carmensánchez@email.com|929210707
+CLIENTE|847|Pedro González|pedrogonzález@email.com|910683393
+CLIENTE|337|Carmen Pérez|carmenpérez@email.com|988214394
+CLIENTE|850|Laura Díaz|lauradíaz@email.com|959642386
+CLIENTE|340|Pedro Rodríguez|pedrorodríguez@email.com|900377110
+CLIENTE|853|Luis López|luislópez@email.com|915431964
+CLIENTE|343|María Martín|maríamartín@email.com|943896781
+CLIENTE|856|Juan González|juangonzález@email.com|945167133
+CLIENTE|346|María González|maríagonzález@email.com|963235521
+CLIENTE|859|Luis Díaz|luisdíaz@email.com|955382231
+CLIENTE|349|María Sánchez|maríasánchez@email.com|933002261
+CLIENTE|862|Juan García|juangarcía@email.com|974793528
+CLIENTE|352|Ana López|analópez@email.com|957680028
+CLIENTE|865|Juan Sánchez|juansánchez@email.com|973325071
+CLIENTE|355|Juan Díaz|juandíaz@email.com|920939977
+CLIENTE|868|Ana Pérez|anapérez@email.com|958077320
+CLIENTE|358|Juan González|juangonzález@email.com|975643232
+CLIENTE|871|Juan González|juangonzález@email.com|908391784
+CLIENTE|361|Pedro Pérez|pedropérez@email.com|920825163
+CLIENTE|874|Ana López|analópez@email.com|926208711
+CLIENTE|364|Carmen García|carmengarcía@email.com|922672443
+CLIENTE|877|Juan González|juangonzález@email.com|949384329
+CLIENTE|367|María Díaz|maríadíaz@email.com|925024968
+CLIENTE|880|Carmen García|carmengarcía@email.com|916179594
+CLIENTE|370|Pedro Pérez|pedropérez@email.com|910887160
+CLIENTE|883|Carlos López|carloslópez@email.com|901498877
+CLIENTE|373|Luis García|luisgarcía@email.com|908208163
+CLIENTE|886|María López|maríalópez@email.com|936372281
+CLIENTE|376|Laura García|lauragarcía@email.com|974369860
+CLIENTE|889|Ana Martín|anamartín@email.com|932089520
+CLIENTE|379|Ana Pérez|anapérez@email.com|928245778
+CLIENTE|892|Luis García|luisgarcía@email.com|925177490
+CLIENTE|382|Carmen Rodríguez|carmenrodríguez@email.com|915227412
+CLIENTE|895|Laura Rodríguez|laurarodríguez@email.com|911715852
+CLIENTE|385|Luis Díaz|luisdíaz@email.com|956936276
+CLIENTE|898|Laura Martín|lauramartín@email.com|991149026
+CLIENTE|388|Ana Martín|anamartín@email.com|948849195
+CLIENTE|901|María Díaz|maríadíaz@email.com|960950454
+CLIENTE|391|María Pérez|maríapérez@email.com|930488578
+CLIENTE|904|Carlos García|carlosgarcía@email.com|975450826
+CLIENTE|394|Laura Pérez|laurapérez@email.com|941728705
+CLIENTE|907|Ana López|analópez@email.com|983984624
+CLIENTE|397|Ana Martín|anamartín@email.com|960519946
+CLIENTE|910|Carmen López|carmenlópez@email.com|908273074
+CLIENTE|400|Carmen Díaz|carmendíaz@email.com|916890437
+CLIENTE|913|Luis López|luislópez@email.com|941206421
+CLIENTE|403|Juan Rodríguez|juanrodríguez@email.com|978557378
+CLIENTE|916|Luis González|luisgonzález@email.com|925888981
+CLIENTE|406|Ana Pérez|anapérez@email.com|996501323
+CLIENTE|919|Juan Pérez|juanpérez@email.com|951314611
+CLIENTE|409|Pedro González|pedrogonzález@email.com|987716001
+CLIENTE|922|Juan Pérez|juanpérez@email.com|989416176
+CLIENTE|412|Ana Pérez|anapérez@email.com|946568073
+CLIENTE|925|Pedro Díaz|pedrodíaz@email.com|942616274
+CLIENTE|415|Luis López|luislópez@email.com|984112401
+CLIENTE|928|Carlos Sánchez|carlossánchez@email.com|936704145
+CLIENTE|418|Luis Martín|luismartín@email.com|982131459
+CLIENTE|931|Juan Sánchez|juansánchez@email.com|973242823
+CLIENTE|421|Carmen Díaz|carmendíaz@email.com|937393513
+CLIENTE|934|María López|maríalópez@email.com|944869376
+CLIENTE|424|Ana Díaz|anadíaz@email.com|972087376
+CLIENTE|937|Pedro López|pedrolópez@email.com|935282748
+CLIENTE|427|Luis Sánchez|luissánchez@email.com|907464703
+CLIENTE|940|Juan Sánchez|juansánchez@email.com|955051988
+CLIENTE|430|Pedro Sánchez|pedrosánchez@email.com|961463292
+CLIENTE|943|Carmen Díaz|carmendíaz@email.com|973936839
+CLIENTE|433|Laura Sánchez|laurasánchez@email.com|918455649
+CLIENTE|946|Carmen Pérez|carmenpérez@email.com|962105116
+CLIENTE|436|Juan Díaz|juandíaz@email.com|943489301
+CLIENTE|949|Ana López|analópez@email.com|925151916
+CLIENTE|439|Carmen González|carmengonzález@email.com|978877100
+CLIENTE|952|Luis Rodríguez|luisrodríguez@email.com|950225713
+CLIENTE|442|Pedro López|pedrolópez@email.com|939017930
+CLIENTE|955|Carmen López|carmenlópez@email.com|993204537
+CLIENTE|445|Pedro Martín|pedromartín@email.com|947480061
+CLIENTE|958|María Martín|maríamartín@email.com|903957021
+CLIENTE|448|Luis Díaz|luisdíaz@email.com|924027957
+CLIENTE|961|Ana Martín|anamartín@email.com|932823237
+CLIENTE|451|Carmen Díaz|carmendíaz@email.com|917880589
+CLIENTE|964|Luis López|luislópez@email.com|975938226
+CLIENTE|454|María García|maríagarcía@email.com|943396418
+CLIENTE|967|Carlos Martín|carlosmartín@email.com|906735950
+CLIENTE|457|Juan Pérez|juanpérez@email.com|980350433
+CLIENTE|970|Carmen López|carmenlópez@email.com|980235314
+CLIENTE|460|Luis Martín|luismartín@email.com|967249670
+CLIENTE|973|Ana González|anagonzález@email.com|953167284
+CLIENTE|463|Ana Díaz|anadíaz@email.com|990691182
+CLIENTE|976|Luis García|luisgarcía@email.com|913869470
+CLIENTE|466|Pedro González|pedrogonzález@email.com|980843337
+CLIENTE|979|Carlos Pérez|carlospérez@email.com|942715806
+CLIENTE|469|Ana Sánchez|anasánchez@email.com|918738733
+CLIENTE|982|Luis Sánchez|luissánchez@email.com|986652070
+CLIENTE|472|Ana Rodríguez|anarodríguez@email.com|961125789
+CLIENTE|985|María Martín|maríamartín@email.com|919192049
+CLIENTE|475|Laura Díaz|lauradíaz@email.com|986961068
+CLIENTE|988|Laura López|lauralópez@email.com|979056179
+CLIENTE|478|Carmen Díaz|carmendíaz@email.com|915346973
+CLIENTE|991|Juan Díaz|juandíaz@email.com|927505135
+CLIENTE|481|María Díaz|maríadíaz@email.com|913299424
+CLIENTE|994|Laura García|lauragarcía@email.com|984153244
+CLIENTE|484|Carlos Pérez|carlospérez@email.com|984441159
+CLIENTE|997|Laura Martín|lauramartín@email.com|988912123
+CLIENTE|487|Luis Martín|luismartín@email.com|921521670
+CLIENTE|1000|Luis García|luisgarcía@email.com|905113196
+CLIENTE|490|Juan López|juanlópez@email.com|982514859
+CLIENTE|493|Juan González|juangonzález@email.com|931205340
+CLIENTE|496|Juan García|juangarcía@email.com|918450490
+CLIENTE|499|Carlos González|carlosgonzález@email.com|991228294
+CLIENTE|502|Pedro Díaz|pedrodíaz@email.com|982759983
+CLIENTE|505|Carlos García|carlosgarcía@email.com|972442119
+CLIENTE|508|Carlos López|carloslópez@email.com|918860708
+CLIENTE|511|Ana Pérez|anapérez@email.com|945188450
+CUENTA|512|412|8435.97|Ahorros
+CUENTA|1025|925|9922.65|Corriente
+CUENTA|515|415|3998.44|Corriente
+CUENTA|1028|928|7827.50|Ahorros
+CUENTA|518|418|3804.96|Corriente
+CUENTA|1031|931|2629.74|Ahorros
+CUENTA|521|421|6680.54|Corriente
+CUENTA|1034|934|3826.27|Corriente
+CUENTA|524|424|7072.99|Corriente
+CUENTA|1037|937|1368.95|Ahorros
+CUENTA|527|427|7464.89|Ahorros
+CUENTA|1040|940|8051.62|Corriente
+CUENTA|530|430|3515.19|Corriente
+CUENTA|1043|943|4446.03|Ahorros
+CUENTA|533|433|6096.23|Corriente
+CUENTA|1046|946|6130.51|Ahorros
+CUENTA|536|436|5449.08|Corriente
+CUENTA|1049|949|8289.91|Corriente
+CUENTA|539|439|2157.57|Ahorros
+CUENTA|1052|952|8245.22|Ahorros
+CUENTA|542|442|1997.73|Corriente
+CUENTA|1055|955|4439.24|Corriente
+CUENTA|545|445|6375.66|Corriente
+CUENTA|1058|958|9876.41|Corriente
+CUENTA|548|448|9926.70|Corriente
+CUENTA|1061|961|1154.61|Corriente
+CUENTA|551|451|7963.96|Corriente
+CUENTA|1064|964|8243.28|Corriente
+CUENTA|554|454|5535.53|Corriente
+CUENTA|1067|967|7017.23|Corriente
+CUENTA|557|457|3520.14|Ahorros
+CUENTA|1070|970|6319.08|Ahorros
+CUENTA|560|460|6185.92|Ahorros
+CUENTA|1073|973|1725.75|Corriente
+CUENTA|563|463|5649.34|Corriente
+CUENTA|1076|976|9740.00|Ahorros
+CUENTA|566|466|5627.62|Corriente
+CUENTA|1079|979|5251.89|Ahorros
+CUENTA|569|469|5690.51|Corriente
+CUENTA|1082|982|9914.56|Ahorros
+CUENTA|572|472|6482.19|Ahorros
+CUENTA|1085|985|6770.27|Corriente
+CUENTA|575|475|4824.98|Corriente
+CUENTA|1088|988|2329.88|Corriente
+CUENTA|578|478|8217.59|Corriente
+CUENTA|1091|991|1730.59|Corriente
+CUENTA|581|481|8143.80|Ahorros
+CUENTA|1094|994|3760.65|Corriente
+CUENTA|584|484|5525.79|Corriente
+CUENTA|1097|997|2554.69|Ahorros
+CUENTA|587|487|8686.81|Ahorros
+CUENTA|1100|1000|2560.12|Ahorros
+CUENTA|590|490|6346.05|Ahorros
+CUENTA|593|493|3496.55|Corriente
+CUENTA|596|496|1261.73|Ahorros
+CUENTA|599|499|5373.95|Ahorros
+CUENTA|602|502|4832.00|Corriente
+CUENTA|605|505|5714.15|Ahorros
+CUENTA|608|508|7055.11|Corriente
+CUENTA|611|511|2142.96|Corriente
+CUENTA|101|1|8554.80|Ahorros
+CUENTA|614|514|6237.59|Ahorros
+CUENTA|104|4|1247.60|Corriente
+CUENTA|617|517|4794.76|Ahorros
+CUENTA|107|7|3942.08|Corriente
+CUENTA|620|520|2057.24|Ahorros
+CUENTA|110|10|5788.80|Corriente
+CUENTA|623|523|9016.62|Corriente
+CUENTA|113|13|8907.34|Ahorros
+CUENTA|626|526|2222.13|Corriente
+CUENTA|116|16|8041.47|Ahorros
+CUENTA|629|529|1398.31|Ahorros
+CUENTA|119|19|1725.92|Corriente
+CUENTA|632|532|8429.60|Corriente
+CUENTA|122|22|5194.20|Ahorros
+CUENTA|635|535|9202.76|Corriente
+CUENTA|125|25|5859.78|Corriente
+CUENTA|638|538|9077.86|Ahorros
+CUENTA|128|28|7083.56|Ahorros
+CUENTA|641|541|8197.02|Ahorros
+CUENTA|131|31|5083.13|Corriente
+CUENTA|644|544|8558.16|Ahorros
+CUENTA|134|34|4849.92|Corriente
+CUENTA|647|547|2293.80|Corriente
+CUENTA|137|37|3293.86|Corriente
+CUENTA|650|550|3810.91|Corriente
+CUENTA|140|40|1575.81|Corriente
+CUENTA|653|553|1341.28|Ahorros
+CUENTA|143|43|4037.61|Corriente
+CUENTA|656|556|6938.26|Ahorros
+CUENTA|146|46|1946.60|Ahorros
+CUENTA|659|559|7422.47|Corriente
+CUENTA|149|49|1868.14|Ahorros
+CUENTA|662|562|9975.54|Ahorros
+CUENTA|152|52|6142.18|Corriente
+CUENTA|665|565|7521.88|Corriente
+CUENTA|155|55|7492.43|Ahorros
+CUENTA|668|568|8801.99|Corriente
+CUENTA|158|58|6155.96|Ahorros
+CUENTA|671|571|5779.83|Corriente
+CUENTA|161|61|8890.98|Corriente
+CUENTA|674|574|8658.24|Corriente
+CUENTA|164|64|8583.90|Ahorros
+CUENTA|677|577|1789.81|Ahorros
+CUENTA|167|67|8642.03|Ahorros
+CUENTA|680|580|1795.18|Ahorros
+CUENTA|170|70|2592.61|Ahorros
+CUENTA|683|583|5482.13|Corriente
+CUENTA|173|73|2301.19|Ahorros
+CUENTA|686|586|5540.43|Corriente
+CUENTA|176|76|6396.92|Corriente
+CUENTA|689|589|3569.68|Corriente
+CUENTA|179|79|9504.61|Ahorros
+CUENTA|692|592|9090.42|Ahorros
+CUENTA|182|82|6707.95|Corriente
+CUENTA|695|595|5420.32|Ahorros
+CUENTA|185|85|1586.91|Ahorros
+CUENTA|698|598|3844.65|Corriente
+CUENTA|188|88|8481.34|Corriente
+CUENTA|701|601|2170.80|Ahorros
+CUENTA|191|91|8340.03|Ahorros
+CUENTA|704|604|4245.29|Corriente
+CUENTA|194|94|7050.37|Ahorros
+CUENTA|707|607|7864.88|Ahorros
+CUENTA|197|97|4040.97|Ahorros
+CUENTA|710|610|2188.67|Corriente
+CUENTA|200|100|9692.49|Ahorros
+CUENTA|713|613|7561.77|Corriente
+CUENTA|203|103|8796.15|Ahorros
+CUENTA|716|616|1881.47|Corriente
+CUENTA|206|106|7592.42|Ahorros
+CUENTA|719|619|8233.50|Ahorros
+CUENTA|209|109|9384.92|Corriente
+CUENTA|722|622|6935.50|Ahorros
+CUENTA|212|112|5446.36|Ahorros
+CUENTA|725|625|6230.30|Corriente
+CUENTA|215|115|7242.35|Corriente
+CUENTA|728|628|1870.96|Corriente
+CUENTA|218|118|5936.23|Ahorros
+CUENTA|731|631|8756.08|Corriente
+CUENTA|221|121|4521.26|Ahorros
+CUENTA|734|634|5522.39|Corriente
+CUENTA|224|124|7499.90|Ahorros
+CUENTA|737|637|2599.31|Corriente
+CUENTA|227|127|9301.23|Ahorros
+CUENTA|740|640|8169.60|Corriente
+CUENTA|230|130|8162.25|Corriente
+CUENTA|743|643|5792.84|Corriente
+CUENTA|233|133|7994.79|Corriente
+CUENTA|746|646|7764.68|Ahorros
+CUENTA|236|136|2277.16|Ahorros
+CUENTA|749|649|5713.46|Corriente
+CUENTA|239|139|4172.90|Ahorros
+CUENTA|752|652|5735.97|Ahorros
+CUENTA|242|142|5384.52|Ahorros
+CUENTA|755|655|5705.21|Ahorros
+CUENTA|245|145|9659.02|Corriente
+CUENTA|758|658|3067.95|Corriente
+CUENTA|248|148|4679.62|Ahorros
+CUENTA|761|661|2747.20|Corriente
+CUENTA|251|151|6502.63|Ahorros
+CUENTA|764|664|9115.34|Corriente
+CUENTA|254|154|4217.08|Corriente
+CUENTA|767|667|7159.20|Corriente
+CUENTA|257|157|1052.39|Ahorros
+CUENTA|770|670|1709.81|Ahorros
+CUENTA|260|160|1478.38|Corriente
+CUENTA|773|673|6316.21|Ahorros
+CUENTA|263|163|6823.93|Corriente
+CUENTA|776|676|5253.72|Corriente
+CUENTA|266|166|2341.53|Corriente
+CUENTA|779|679|7843.39|Corriente
+CUENTA|269|169|7091.51|Corriente
+CUENTA|782|682|8566.75|Corriente
+CUENTA|272|172|6895.19|Corriente
+CUENTA|785|685|9598.42|Ahorros
+CUENTA|275|175|2953.19|Ahorros
+CUENTA|788|688|6936.17|Ahorros
+CUENTA|278|178|5194.99|Corriente
+CUENTA|791|691|9780.35|Corriente
+CUENTA|281|181|8885.12|Corriente
+CUENTA|794|694|7489.59|Ahorros
+CUENTA|284|184|4589.76|Ahorros
+CUENTA|797|697|4888.81|Corriente
+CUENTA|287|187|5985.64|Ahorros
+CUENTA|800|700|8916.29|Ahorros
+CUENTA|290|190|2173.99|Corriente
+CUENTA|803|703|6699.74|Ahorros
+CUENTA|293|193|8268.56|Corriente
+CUENTA|806|706|4943.37|Corriente
+CUENTA|296|196|8982.69|Corriente
+CUENTA|809|709|1424.51|Ahorros
+CUENTA|299|199|7850.29|Corriente
+CUENTA|812|712|7320.53|Corriente
+CUENTA|302|202|4553.04|Ahorros
+CUENTA|815|715|3325.87|Ahorros
+CUENTA|305|205|4969.41|Corriente
+CUENTA|818|718|9546.82|Ahorros
+CUENTA|308|208|3295.25|Corriente
+CUENTA|821|721|9121.94|Ahorros
+CUENTA|311|211|9853.64|Ahorros
+CUENTA|824|724|9271.21|Corriente
+CUENTA|314|214|8225.03|Ahorros
+CUENTA|827|727|5909.29|Corriente
+CUENTA|317|217|2291.55|Corriente
+CUENTA|830|730|2474.67|Corriente
+CUENTA|320|220|1164.42|Ahorros
+CUENTA|833|733|2267.40|Ahorros
+CUENTA|323|223|4297.44|Corriente
+CUENTA|836|736|5876.41|Ahorros
+CUENTA|326|226|8334.92|Ahorros
+CUENTA|839|739|4903.88|Corriente
+CUENTA|329|229|1260.75|Ahorros
+CUENTA|842|742|3852.03|Ahorros
+CUENTA|332|232|5881.51|Corriente
+CUENTA|845|745|4195.73|Corriente
+CUENTA|335|235|6683.08|Corriente
+CUENTA|848|748|9782.43|Corriente
+CUENTA|338|238|3178.01|Corriente
+CUENTA|851|751|1355.55|Ahorros
+CUENTA|341|241|7777.14|Ahorros
+CUENTA|854|754|8687.29|Corriente
+CUENTA|344|244|1596.17|Corriente
+CUENTA|857|757|2141.00|Ahorros
+CUENTA|347|247|1915.07|Ahorros
+CUENTA|860|760|9376.51|Corriente
+CUENTA|350|250|7432.69|Corriente
+CUENTA|863|763|9327.67|Corriente
+CUENTA|353|253|2572.23|Corriente
+CUENTA|866|766|3995.50|Corriente
+CUENTA|356|256|9065.96|Corriente
+CUENTA|869|769|7122.25|Ahorros
+CUENTA|359|259|3807.83|Corriente
+CUENTA|872|772|1491.05|Ahorros
+CUENTA|362|262|3820.50|Ahorros
+CUENTA|875|775|3540.74|Ahorros
+CUENTA|365|265|2277.31|Ahorros
+CUENTA|878|778|4837.52|Ahorros
+CUENTA|368|268|1856.37|Ahorros
+CUENTA|881|781|1258.60|Corriente
+CUENTA|371|271|1117.06|Corriente
+CUENTA|884|784|7811.51|Ahorros
+CUENTA|374|274|3771.55|Ahorros
+CUENTA|887|787|1350.23|Ahorros
+CUENTA|377|277|4910.27|Ahorros
+CUENTA|890|790|6293.99|Corriente
+CUENTA|380|280|5984.16|Ahorros
+CUENTA|893|793|9761.82|Ahorros
+CUENTA|383|283|6779.26|Ahorros
+CUENTA|896|796|4412.38|Ahorros
+CUENTA|386|286|1135.22|Ahorros
+CUENTA|899|799|7226.50|Corriente
+CUENTA|389|289|3472.76|Corriente
+CUENTA|902|802|1215.49|Ahorros
+CUENTA|392|292|3261.68|Corriente
+CUENTA|905|805|1209.59|Corriente
+CUENTA|395|295|2530.69|Ahorros
+CUENTA|908|808|4513.22|Corriente
+CUENTA|398|298|6159.52|Ahorros
+CUENTA|911|811|8034.45|Corriente
+CUENTA|401|301|6323.93|Corriente
+CUENTA|914|814|3571.90|Corriente
+CUENTA|404|304|2446.37|Ahorros
+CUENTA|917|817|9743.72|Corriente
+CUENTA|407|307|6242.87|Corriente
+CUENTA|920|820|3655.91|Corriente
+CUENTA|410|310|6458.14|Ahorros
+CUENTA|923|823|4565.29|Corriente
+CUENTA|413|313|7896.33|Corriente
+CUENTA|926|826|7671.78|Corriente
+CUENTA|416|316|3936.15|Corriente
+CUENTA|929|829|6744.27|Corriente
+CUENTA|419|319|4629.56|Corriente
+CUENTA|932|832|6859.37|Corriente
+CUENTA|422|322|3826.08|Corriente
+CUENTA|935|835|9677.20|Ahorros
+CUENTA|425|325|6114.24|Corriente
+CUENTA|938|838|4691.00|Corriente
+CUENTA|428|328|8676.60|Ahorros
+CUENTA|941|841|6771.72|Ahorros
+CUENTA|431|331|1064.73|Ahorros
+CUENTA|944|844|6905.30|Corriente
+CUENTA|434|334|9049.41|Ahorros
+CUENTA|947|847|5775.65|Ahorros
+CUENTA|437|337|1234.39|Corriente
+CUENTA|950|850|6116.87|Ahorros
+CUENTA|440|340|4596.70|Corriente
+CUENTA|953|853|8468.88|Corriente
+CUENTA|443|343|3038.93|Ahorros
+CUENTA|956|856|8321.67|Corriente
+CUENTA|446|346|4036.68|Corriente
+CUENTA|959|859|6955.11|Ahorros
+CUENTA|449|349|8465.96|Corriente
+CUENTA|962|862|1152.99|Corriente
+CUENTA|452|352|9271.97|Ahorros
+CUENTA|965|865|6044.93|Ahorros
+CUENTA|455|355|6152.53|Corriente
+CUENTA|968|868|4144.70|Ahorros
+CUENTA|458|358|9341.07|Corriente
+CUENTA|971|871|4623.57|Corriente
+CUENTA|461|361|7996.41|Ahorros
+CUENTA|974|874|9911.93|Ahorros
+CUENTA|464|364|7235.88|Corriente
+CUENTA|977|877|4488.42|Corriente
+CUENTA|467|367|5336.70|Corriente
+CUENTA|980|880|3868.98|Corriente
+CUENTA|470|370|9683.89|Ahorros
+CUENTA|983|883|4210.08|Corriente
+CUENTA|473|373|5664.37|Corriente
+CUENTA|986|886|4349.07|Corriente
+CUENTA|476|376|8215.95|Ahorros
+CUENTA|989|889|9774.33|Ahorros
+CUENTA|479|379|5478.04|Corriente
+CUENTA|992|892|7168.40|Ahorros
+CUENTA|482|382|1514.65|Ahorros
+CUENTA|995|895|3304.07|Corriente
+CUENTA|485|385|5908.52|Ahorros
+CUENTA|998|898|2360.37|Corriente
+CUENTA|488|388|4566.12|Corriente
+CUENTA|1001|901|2041.86|Corriente
+CUENTA|491|391|1234.11|Corriente
+CUENTA|1004|904|1987.16|Ahorros
+CUENTA|494|394|2283.70|Ahorros
+CUENTA|1007|907|4042.44|Ahorros
+CUENTA|497|397|5961.60|Ahorros
+CUENTA|1010|910|9280.77|Ahorros
+CUENTA|500|400|3406.02|Ahorros
+CUENTA|1013|913|7025.68|Ahorros
+CUENTA|503|403|4152.27|Corriente
+CUENTA|1016|916|7460.31|Corriente
+CUENTA|506|406|2827.56|Corriente
+CUENTA|1019|919|1464.93|Corriente
+CUENTA|509|409|7506.29|Corriente
+CUENTA|1022|922|7176.49|Corriente
+TRANSACCION|1|437|518|95.98|2025-05-22T09:59:54.9317224|CONFIRMADA
+TRANSACCION|2|293|746|164.59|2025-05-22T09:59:55.1070177|CONFIRMADA
+TRANSACCION|3|101|248|972.41|2025-05-22T09:59:55.1750016|CONFIRMADA
+TRANSACCION|4|119|347|451.97|2025-05-22T09:59:55.2914546|CONFIRMADA
+TRANSACCION|5|923|854|72.89|2025-05-22T09:59:55.3266064|CONFIRMADA
+TRANSACCION|6|1097|1061|89.53|2025-05-22T09:59:55.9792471|CONFIRMADA
+TRANSACCION|7|734|215|12.16|2025-05-22T09:59:56.0313977|CONFIRMADA
+TRANSACCION|8|332|857|562.76|2025-05-22T09:59:56.3828004|CONFIRMADA
+TRANSACCION|9|671|872|28.56|2025-05-22T09:59:56.9266324|CONFIRMADA

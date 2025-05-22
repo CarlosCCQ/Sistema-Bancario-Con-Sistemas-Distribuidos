@@ -1,31 +1,10 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.InetSocketAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
-//import java.net.SocketAddress;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-//import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-//import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.Collections;
-import java.util.Comparator;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ServidorCentral {
     private ServerSocket serverSocket;
@@ -45,19 +24,23 @@ public class ServidorCentral {
     public void iniciar() throws IOException {
         serverSocket = new ServerSocket(port);
         running = true;
+        System.out.println("[Servidor] Iniciado en puerto " + port);
         new Thread(this::aceptarConexionesNodos).start();
         iniciarHeartbeat();
 
         while (running) {
             Socket clienteSocket = serverSocket.accept();
+            System.out.println("[Servidor] Cliente conectado: " + clienteSocket.getInetAddress());
             executor.execute(() -> manejarCliente(clienteSocket));
         }
     }
 
     private void aceptarConexionesNodos() {
         try (ServerSocket nodoServerSocket = new ServerSocket(port + 1)) {
+            System.out.println("[Servidor] Escuchando nodos en puerto " + (port + 1));
             while (running) {
                 Socket nodoSocket = nodoServerSocket.accept();
+                System.out.println("[Servidor] Nodo conectado: " + nodoSocket.getInetAddress());
                 executor.execute(() -> procesarRegistroNodo(nodoSocket));
             }
         } catch (IOException e) {
@@ -72,34 +55,19 @@ public class ServidorCentral {
 
             String linea;
             while ((linea = in.readLine()) != null) {
-                String[] partes = linea.split("\\|");
+                System.out.println("[Servidor] Mensaje nodo: " + linea);
 
-                if ("REGISTRO".equals(partes[0])) {
-                    int nodoId = Integer.parseInt(partes[1]);
-                    String ipNodo = partes[2];
-                    int puertoNodo = Integer.parseInt(partes[3]);
+                if (linea.contains("REGISTRO|") && linea.contains("HEARTBEAT|")) {
+                    String[] mensajes = linea.split("HEARTBEAT\\|");
+                    procesarMensajeNodo(mensajes[0], out);
 
-                    Arrays.stream(partes[4].split(",")).forEach(t -> {
-                        String[] datos = t.split(":");
-                        String tabla = datos[0];
-                        int particion = Integer.parseInt(datos[1]);
-                        String key = tabla + "_" + particion;
-                        replicas.computeIfAbsent(key, k -> new CopyOnWriteArrayList<>()).add(nodoId);
-                        loadBalancer.addNodo(key, nodoId);
-                    });
-
-                    NodoHandler nuevoNodo = new NodoHandler(nodoId, ipNodo, puertoNodo);
-                    nodos.put(nodoId, nuevoNodo);
-                    loadBalancer.actualizarMetricas(nodoId, nuevoNodo);
-                    ultimoHeartbeat.put(nodoId, System.currentTimeMillis());
-                    out.println("REGISTRO_EXITOSO");
-                } else if ("HEARTBEAT".equals(partes[0])) {
-                    int nodoId = Integer.parseInt(partes[1]);
-                    ultimoHeartbeat.put(nodoId, System.currentTimeMillis());
-                    NodoHandler nodo = nodos.get(nodoId);
-                    if (nodo != null) {
-                        nodo.setActivo(true);
+                    for (int i = 1; i < mensajes.length; i++) {
+                        if (!mensajes[i].isEmpty()) {
+                            procesarMensajeNodo("HEARTBEAT|" + mensajes[i], out);
+                        }
                     }
+                } else {
+                    procesarMensajeNodo(linea, out);
                 }
             }
         } catch (Exception e) {
@@ -107,8 +75,45 @@ public class ServidorCentral {
         }
     }
 
+    private void procesarMensajeNodo(String mensaje, PrintWriter out) {
+        String[] partes = mensaje.split("\\|");
+
+        if ("REGISTRO".equals(partes[0]) && partes.length >= 5) {
+            int nodoId = Integer.parseInt(partes[1]);
+            String ipNodo = partes[2];
+            int puertoNodo = Integer.parseInt(partes[3]);
+
+            Arrays.stream(partes[4].split(",")).forEach(t -> {
+                String[] datos = t.split(":");
+                if (datos.length == 2) {
+                    String tabla = datos[0];
+                    int particion = Integer.parseInt(datos[1]);
+                    String key = tabla + "_" + particion;
+                    replicas.computeIfAbsent(key, k -> new CopyOnWriteArrayList<>()).add(nodoId);
+                    loadBalancer.addNodo(key, nodoId);
+                }
+            });
+
+            NodoHandler nuevoNodo = new NodoHandler(nodoId, ipNodo, puertoNodo);
+            nodos.put(nodoId, nuevoNodo);
+            loadBalancer.actualizarMetricas(nodoId, nuevoNodo);
+            ultimoHeartbeat.put(nodoId, System.currentTimeMillis());
+            out.println("REGISTRO_EXITOSO");
+            System.out.printf("[Servidor] Nodo %d registrado (IP: %s, Puerto: %d)%n", nodoId, ipNodo, puertoNodo);
+
+        } else if ("HEARTBEAT".equals(partes[0]) && partes.length >= 2) {
+            int nodoId = Integer.parseInt(partes[1]);
+            ultimoHeartbeat.put(nodoId, System.currentTimeMillis());
+            NodoHandler nodo = nodos.get(nodoId);
+            if (nodo != null) {
+                nodo.setActivo(true);
+            }
+        }
+    }
+
     private void iniciarHeartbeat() {
         heartbeatScheduler.scheduleAtFixedRate(() -> {
+            System.out.println("[Servidor] Verificando heartbeats...");
             long tiempoActual = System.currentTimeMillis();
             ultimoHeartbeat.forEach((nodoId, ultimoTiempo) -> {
                 NodoHandler nodo = nodos.get(nodoId);
@@ -165,15 +170,39 @@ public class ServidorCentral {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
 
+            socket.setSoTimeout(30000);
+
             String mensaje;
             while ((mensaje = in.readLine()) != null && !mensaje.isEmpty()) {
+                System.out.println("[Servidor] Solicitud cliente: " + mensaje);
                 String[] partes = mensaje.split("\\|", 4);
-                switch (partes[0]) {
-                    case "CONSULTAR_SALDO" -> consultarSaldoConFailover(partes[1], out);
-                    case "TRANSFERIR_FONDOS" -> transferirFondosConConsistencia(partes[1], partes[2], partes[3], out);
-                    case "ARQUEO" -> arqueoGlobal(out);
-                    default -> out.println("ERROR|OPERACION_NO_SOPORTADA");
+
+                try {
+                    switch (partes[0]) {
+                        case "CONSULTAR_SALDO" -> {
+                            if (partes.length >= 2) {
+                                consultarSaldoConFailover(partes[1], out);
+                            } else {
+                                out.println("ERROR|FORMATO_INVALIDO");
+                            }
+                        }
+                        case "TRANSFERIR_FONDOS" -> {
+                            if (partes.length >= 4) {
+                                transferirFondosConConsistencia(partes[1], partes[2], partes[3], out);
+                            } else {
+                                out.println("ERROR|FORMATO_INVALIDO");
+                            }
+                        }
+                        case "ARQUEO" -> arqueoGlobal(out);
+                        default -> out.println("ERROR|OPERACION_NO_SOPORTADA");
+                    }
+                } catch (Exception e) {
+                    System.err.println("[Servidor] Error procesando solicitud: " + e.getMessage());
+                    out.println("ERROR|ERROR_INTERNO");
                 }
+
+                out.flush();
+                break;
             }
         } catch (IOException e) {
             System.err.println("Error con cliente: " + e.getMessage());
@@ -185,6 +214,7 @@ public class ServidorCentral {
         List<Integer> nodosReplica = replicas.get("CUENTA_" + particion);
 
         if (nodosReplica == null || nodosReplica.isEmpty()) {
+            System.err.println("[ERROR] No hay réplicas para partición CUENTA_" + particion);
             out.println("ERROR|PARTICION_NO_ENCONTRADA");
             return;
         }
@@ -194,69 +224,48 @@ public class ServidorCentral {
             if (nodo != null && nodo.estaActivo()) {
                 try {
                     String respuesta = nodo.enviarYRecibir("CONSULTAR|" + idCuenta, 5);
+                    System.out.println("[Servidor] Respuesta nodo " + nodoId + ": " + respuesta);
                     out.println(respuesta);
                     return;
                 } catch (TimeoutException e) {
+                    System.err.println("[ERROR] Timeout consultando nodo " + nodoId);
                     nodo.setActivo(false);
                     continue;
                 }
             }
         }
+        System.err.println("[ERROR] Todos los nodos inactivos para CUENTA_" + particion);
         out.println("ERROR|TODOS_LOS_NODOS_INACTIVOS");
     }
 
     private void transferirFondosConConsistencia(String origen, String destino, String monto, PrintWriter out) {
         int particionOrigen = hashParticion(origen);
-        List<Integer> nodosOrigen = replicas.get("CUENTA_" + particionOrigen);
+        int particionDestino = hashParticion(destino);
 
-        if (nodosOrigen == null || nodosOrigen.isEmpty()) {
-            out.println("ERROR|PARTICION_NO_ENCONTRADA");
-            return;
-        }
+        if (particionOrigen == particionDestino) {
+            List<Integer> nodosOrigen = replicas.get("CUENTA_" + particionOrigen);
+            if (nodosOrigen == null || nodosOrigen.isEmpty()) {
+                out.println("ERROR|PARTICION_NO_ENCONTRADA");
+                return;
+            }
 
-        List<Integer> nodosActivos = nodosOrigen.stream()
-                .filter(id -> nodos.get(id).estaActivo())
-                .toList();
-
-        if (nodosActivos.isEmpty()) {
-            out.println("ERROR|NODOS_NO_DISPONIBLES");
-            return;
-        }
-
-        AtomicInteger exitos = new AtomicInteger(0);
-        AtomicInteger fallos = new AtomicInteger(0);
-        List<CompletableFuture<Void>> futures = nodosActivos.stream()
-                .map(nodoId -> CompletableFuture.runAsync(() -> {
+            for (Integer nodoId : nodosOrigen) {
+                NodoHandler nodo = nodos.get(nodoId);
+                if (nodo != null && nodo.estaActivo()) {
                     try {
-                        NodoHandler nodo = nodos.get(nodoId);
                         String respuesta = nodo.enviarYRecibir("TRANSFERIR|" + origen + "|" + destino + "|" + monto,
                                 10);
-                        if ("OK".equals(respuesta)) {
-                            exitos.incrementAndGet();
-                        } else {
-                            fallos.incrementAndGet();
-                        }
+                        out.println(respuesta);
+                        return;
                     } catch (TimeoutException e) {
-                        nodos.get(nodoId).setActivo(false);
-                        fallos.incrementAndGet();
+                        nodo.setActivo(false);
+                        continue;
                     }
-                }, executor))
-                .toList();
-
-        try {
-            CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
-                    .get(20, TimeUnit.SECONDS);
-
-            int totalRespuestas = exitos.get() + fallos.get();
-            if (exitos.get() > 0 && exitos.get() >= (totalRespuestas / 2)) {
-                out.println("OK|TRANSFERENCIA_EXITOSA");
-            } else {
-                out.println("ERROR|TRANSFERENCIA_FALLIDA");
+                }
             }
-        } catch (TimeoutException e) {
-            out.println("ERROR|TIEMPO_EXCEDIDO");
-        } catch (Exception e) {
-            out.println("ERROR|ERROR_INTERNO");
+            out.println("ERROR|NODOS_NO_DISPONIBLES");
+        } else {
+            out.println("ERROR|TRANSFERENCIA_ENTRE_PARTICIONES_NO_SOPORTADA");
         }
     }
 
@@ -328,7 +337,8 @@ public class ServidorCentral {
 
     private int hashParticion(String id) {
         try {
-            return (Math.abs(Integer.parseInt(id)) % 3) + 1;
+            int clienteId = Integer.parseInt(id) - 100;
+            return (Math.abs(clienteId) % 3) + 1;
         } catch (NumberFormatException e) {
             return 1;
         }
@@ -355,12 +365,8 @@ public class ServidorCentral {
                 socket.connect(new InetSocketAddress(ip, puerto), timeout * 1000);
                 socket.setSoTimeout(timeout * 1000);
 
-                PrintWriter out = new PrintWriter(
-                        new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8),
-                        true);
-
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                 out.println(mensaje);
                 String respuesta = in.readLine();
@@ -410,6 +416,11 @@ public class ServidorCentral {
     }
 
     public static void main(String[] args) throws IOException {
-        new ServidorCentral(5000).iniciar();
+        try {
+            new ServidorCentral(5000).iniciar();
+        } catch (Exception e) {
+            System.err.println("[Servidor] Error crítico: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

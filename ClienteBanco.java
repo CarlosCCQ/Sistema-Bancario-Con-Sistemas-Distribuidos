@@ -17,33 +17,42 @@ public class ClienteBanco {
         ExecutorService pool = Executors.newVirtualThreadPerTaskExecutor();
 
         for (int i = 0; i < 1000; i++) {
+            final int clienteId = i;
             pool.execute(() -> {
-                try (Socket socket = new Socket("localhost", 5000);
-                        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+                try {
+                    Thread.sleep(rand.nextInt(2000) + 1000);
 
-                    String operacion = OPERACIONES[rand.nextInt(OPERACIONES.length)];
-                    String mensaje = generarMensaje(operacion);
+                    try (Socket socket = new Socket("localhost", 5000)) {
+                        socket.setSoTimeout(10000);
 
-                    out.println(mensaje);
-                    String respuesta = in.readLine();
+                        try (PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                                BufferedReader in = new BufferedReader(
+                                        new InputStreamReader(socket.getInputStream()))) {
 
-                    if (respuesta != null && !respuesta.startsWith("ERROR")) {
-                        transaccionesExitosas.incrementAndGet();
-                    } else if (respuesta == null) {
-                        System.err.println("Error: Respuesta nula");
+                            String operacion = OPERACIONES[rand.nextInt(OPERACIONES.length)];
+                            String mensaje = generarMensaje(operacion);
+
+                            out.println(mensaje);
+                            out.flush();
+
+                            String respuesta = in.readLine();
+
+                            if (respuesta != null && !respuesta.startsWith("ERROR")) {
+                                transaccionesExitosas.incrementAndGet();
+                            }
+
+                            Thread.sleep(rand.nextInt(1000));
+                        }
                     }
-
-                    Thread.sleep(rand.nextInt(1000));
                 } catch (Exception e) {
-                    System.err.println("Cliente falló: " + e.getMessage());
+                    System.err.println("Cliente " + clienteId + " falló: " + e.getMessage());
                 }
             });
         }
 
         pool.shutdown();
         try {
-            pool.awaitTermination(1, TimeUnit.MINUTES);
+            pool.awaitTermination(2, TimeUnit.MINUTES);
             System.out.println("\nResultados:");
             System.out.println("Transacciones exitosas: " + transaccionesExitosas.get());
             System.out.println("Transacciones fallidas: " + (1000 - transaccionesExitosas.get()));
@@ -53,14 +62,14 @@ public class ClienteBanco {
     }
 
     private static String generarMensaje(String operacion) {
+        int cuentaId = 101 + rand.nextInt(1000);
         return switch (operacion) {
-            case "CONSULTAR_SALDO" ->
-                "CONSULTAR_SALDO|" + (100 + rand.nextInt(900));
+            case "CONSULTAR_SALDO" -> "CONSULTAR_SALDO|" + cuentaId;
             case "TRANSFERIR_FONDOS" ->
                 String.format("TRANSFERIR_FONDOS|%d|%d|%.2f",
-                        100 + rand.nextInt(900),
-                        100 + rand.nextInt(900),
-                        Math.round(rand.nextDouble() * 1000 * 100.0) / 100.0);
+                        cuentaId,
+                        101 + rand.nextInt(1000),
+                        rand.nextDouble() * 1000);
             default -> throw new IllegalArgumentException();
         };
     }

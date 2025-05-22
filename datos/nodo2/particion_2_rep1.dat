@@ -1,0 +1,668 @@
+CLIENTE|1|Laura López|lauralópez@email.com|903106182
+CUENTA|101|1|5602.78|Ahorros
+CLIENTE|4|Carlos López|carloslópez@email.com|979950516
+CUENTA|104|4|2230.82|Corriente
+CLIENTE|7|Juan Pérez|juanpérez@email.com|961582603
+CUENTA|107|7|5527.81|Ahorros
+CLIENTE|10|Carlos López|carloslópez@email.com|990191432
+CUENTA|110|10|5247.07|Ahorros
+CLIENTE|13|María Pérez|maríapérez@email.com|990176794
+CUENTA|113|13|5067.41|Ahorros
+CLIENTE|16|Laura Rodríguez|laurarodríguez@email.com|901986981
+CUENTA|116|16|1117.67|Ahorros
+CLIENTE|19|Carmen Pérez|carmenpérez@email.com|945547637
+CUENTA|119|19|3525.10|Ahorros
+CLIENTE|22|Laura González|lauragonzález@email.com|986346813
+CUENTA|122|22|9764.74|Corriente
+CLIENTE|25|Carmen López|carmenlópez@email.com|995050043
+CUENTA|125|25|8540.36|Corriente
+CLIENTE|28|Ana Pérez|anapérez@email.com|989475297
+CUENTA|128|28|4572.91|Ahorros
+CLIENTE|31|Juan López|juanlópez@email.com|914719962
+CUENTA|131|31|2469.94|Ahorros
+CLIENTE|34|Ana Martín|anamartín@email.com|914371910
+CUENTA|134|34|3139.56|Ahorros
+CLIENTE|37|Laura Sánchez|laurasánchez@email.com|959869081
+CUENTA|137|37|2617.68|Corriente
+CLIENTE|40|Luis Rodríguez|luisrodríguez@email.com|927261468
+CUENTA|140|40|8369.73|Ahorros
+CLIENTE|43|Carmen García|carmengarcía@email.com|983547083
+CUENTA|143|43|8125.81|Ahorros
+CLIENTE|46|Laura López|lauralópez@email.com|963629523
+CUENTA|146|46|4986.08|Corriente
+CLIENTE|49|Carlos López|carloslópez@email.com|983253404
+CUENTA|149|49|4705.65|Ahorros
+CLIENTE|52|Luis Sánchez|luissánchez@email.com|960505331
+CUENTA|152|52|4508.16|Ahorros
+CLIENTE|55|Pedro García|pedrogarcía@email.com|982384505
+CUENTA|155|55|7726.73|Ahorros
+CLIENTE|58|Juan García|juangarcía@email.com|924795679
+CUENTA|158|58|4783.38|Ahorros
+CLIENTE|61|Carlos Martín|carlosmartín@email.com|995907623
+CUENTA|161|61|3086.50|Corriente
+CLIENTE|64|María González|maríagonzález@email.com|920897536
+CUENTA|164|64|4254.50|Ahorros
+CLIENTE|67|Carmen Martín|carmenmartín@email.com|975671591
+CUENTA|167|67|3714.48|Ahorros
+CLIENTE|70|Carmen Rodríguez|carmenrodríguez@email.com|990175477
+CUENTA|170|70|2501.32|Ahorros
+CLIENTE|73|Pedro Martín|pedromartín@email.com|945872663
+CUENTA|173|73|1719.42|Corriente
+CLIENTE|76|Laura Rodríguez|laurarodríguez@email.com|990017909
+CUENTA|176|76|8828.35|Corriente
+CLIENTE|79|Ana González|anagonzález@email.com|954038939
+CUENTA|179|79|7074.37|Ahorros
+CLIENTE|82|Ana González|anagonzález@email.com|960578916
+CUENTA|182|82|2102.37|Corriente
+CLIENTE|85|Carmen Martín|carmenmartín@email.com|997443293
+CUENTA|185|85|2253.30|Corriente
+CLIENTE|88|Carmen Martín|carmenmartín@email.com|937869442
+CUENTA|188|88|4095.34|Corriente
+CLIENTE|91|María Sánchez|maríasánchez@email.com|964149778
+CUENTA|191|91|9409.13|Ahorros
+CLIENTE|94|Juan Díaz|juandíaz@email.com|927206479
+CUENTA|194|94|1141.51|Corriente
+CLIENTE|97|Luis Martín|luismartín@email.com|948013614
+CUENTA|197|97|5104.93|Ahorros
+CLIENTE|100|Luis González|luisgonzález@email.com|964574736
+CUENTA|200|100|1916.15|Corriente
+CLIENTE|103|Carlos García|carlosgarcía@email.com|918283450
+CUENTA|203|103|7082.51|Ahorros
+CLIENTE|106|Pedro Pérez|pedropérez@email.com|983594743
+CUENTA|206|106|6046.60|Corriente
+CLIENTE|109|Juan González|juangonzález@email.com|955670730
+CUENTA|209|109|2351.68|Corriente
+CLIENTE|112|Ana González|anagonzález@email.com|934655335
+CUENTA|212|112|9759.29|Ahorros
+CLIENTE|115|Pedro Rodríguez|pedrorodríguez@email.com|930146835
+CUENTA|215|115|6880.08|Corriente
+CLIENTE|118|María López|maríalópez@email.com|977235293
+CUENTA|218|118|6670.93|Ahorros
+CLIENTE|121|Pedro García|pedrogarcía@email.com|926402082
+CUENTA|221|121|2650.94|Corriente
+CLIENTE|124|Carmen García|carmengarcía@email.com|966471155
+CUENTA|224|124|6677.04|Corriente
+CLIENTE|127|Luis Díaz|luisdíaz@email.com|924122031
+CUENTA|227|127|8136.42|Ahorros
+CLIENTE|130|Ana González|anagonzález@email.com|946867975
+CUENTA|230|130|7564.24|Corriente
+CLIENTE|133|Luis González|luisgonzález@email.com|904325399
+CUENTA|233|133|9092.32|Corriente
+CLIENTE|136|Carmen Martín|carmenmartín@email.com|951998210
+CUENTA|236|136|6970.97|Ahorros
+CLIENTE|139|Juan López|juanlópez@email.com|986630128
+CUENTA|239|139|6537.78|Corriente
+CLIENTE|142|Carlos Rodríguez|carlosrodríguez@email.com|901513403
+CUENTA|242|142|4000.94|Ahorros
+CLIENTE|145|Ana García|anagarcía@email.com|994857663
+CUENTA|245|145|5344.97|Corriente
+CLIENTE|148|Luis López|luislópez@email.com|977176961
+CUENTA|248|148|5621.11|Corriente
+CLIENTE|151|Ana González|anagonzález@email.com|938799821
+CUENTA|251|151|4768.53|Ahorros
+CLIENTE|154|Luis Díaz|luisdíaz@email.com|983115583
+CUENTA|254|154|3775.73|Corriente
+CLIENTE|157|Carmen García|carmengarcía@email.com|963767328
+CUENTA|257|157|9716.08|Corriente
+CLIENTE|160|Ana García|anagarcía@email.com|905600963
+CUENTA|260|160|6354.70|Ahorros
+CLIENTE|163|Luis Sánchez|luissánchez@email.com|916573838
+CUENTA|263|163|2557.36|Ahorros
+CLIENTE|166|María Sánchez|maríasánchez@email.com|902785312
+CUENTA|266|166|5063.14|Corriente
+CLIENTE|169|Laura Sánchez|laurasánchez@email.com|914463732
+CUENTA|269|169|7733.53|Corriente
+CLIENTE|172|Ana Rodríguez|anarodríguez@email.com|988854074
+CUENTA|272|172|6251.04|Ahorros
+CLIENTE|175|Carmen González|carmengonzález@email.com|922674316
+CUENTA|275|175|4535.29|Corriente
+CLIENTE|178|Luis Martín|luismartín@email.com|988666472
+CUENTA|278|178|9641.93|Ahorros
+CLIENTE|181|Carmen Sánchez|carmensánchez@email.com|966352228
+CUENTA|281|181|1831.50|Ahorros
+CLIENTE|184|Luis Pérez|luispérez@email.com|901162044
+CUENTA|284|184|1018.10|Corriente
+CLIENTE|187|Ana Rodríguez|anarodríguez@email.com|924445683
+CUENTA|287|187|3643.31|Ahorros
+CLIENTE|190|Pedro Díaz|pedrodíaz@email.com|951948391
+CUENTA|290|190|4509.54|Ahorros
+CLIENTE|193|Pedro Díaz|pedrodíaz@email.com|968819406
+CUENTA|293|193|9652.40|Corriente
+CLIENTE|196|Ana López|analópez@email.com|992434624
+CUENTA|296|196|8534.68|Ahorros
+CLIENTE|199|Ana López|analópez@email.com|905051264
+CUENTA|299|199|3620.88|Ahorros
+CLIENTE|202|Carlos Pérez|carlospérez@email.com|930634859
+CUENTA|302|202|4353.61|Ahorros
+CLIENTE|205|Luis García|luisgarcía@email.com|958867584
+CUENTA|305|205|4382.00|Corriente
+CLIENTE|208|Laura Martín|lauramartín@email.com|904788511
+CUENTA|308|208|9928.43|Ahorros
+CLIENTE|211|Carlos García|carlosgarcía@email.com|965430340
+CUENTA|311|211|4369.62|Corriente
+CLIENTE|214|Carlos Sánchez|carlossánchez@email.com|947307913
+CUENTA|314|214|1509.10|Corriente
+CLIENTE|217|María Martín|maríamartín@email.com|992028794
+CUENTA|317|217|8406.29|Ahorros
+CLIENTE|220|Carmen Díaz|carmendíaz@email.com|975479508
+CUENTA|320|220|9356.02|Ahorros
+CLIENTE|223|Ana Díaz|anadíaz@email.com|924977247
+CUENTA|323|223|1717.60|Ahorros
+CLIENTE|226|Carlos Martín|carlosmartín@email.com|944417618
+CUENTA|326|226|8909.18|Corriente
+CLIENTE|229|Luis González|luisgonzález@email.com|989714737
+CUENTA|329|229|6419.95|Ahorros
+CLIENTE|232|Ana Pérez|anapérez@email.com|903934269
+CUENTA|332|232|8765.32|Ahorros
+CLIENTE|235|Carmen Sánchez|carmensánchez@email.com|934789062
+CUENTA|335|235|7310.31|Corriente
+CLIENTE|238|Pedro Rodríguez|pedrorodríguez@email.com|928749727
+CUENTA|338|238|9136.90|Ahorros
+CLIENTE|241|Laura González|lauragonzález@email.com|918561095
+CUENTA|341|241|6925.42|Corriente
+CLIENTE|244|Juan García|juangarcía@email.com|922681177
+CUENTA|344|244|4253.14|Ahorros
+CLIENTE|247|Juan Díaz|juandíaz@email.com|932464127
+CUENTA|347|247|1022.70|Corriente
+CLIENTE|250|Luis López|luislópez@email.com|915116871
+CUENTA|350|250|6001.82|Corriente
+CLIENTE|253|Carlos Díaz|carlosdíaz@email.com|960202836
+CUENTA|353|253|3840.10|Corriente
+CLIENTE|256|Juan Rodríguez|juanrodríguez@email.com|952548232
+CUENTA|356|256|2183.46|Ahorros
+CLIENTE|259|Juan Sánchez|juansánchez@email.com|941004512
+CUENTA|359|259|1425.11|Corriente
+CLIENTE|262|Luis Martín|luismartín@email.com|949128932
+CUENTA|362|262|2102.07|Ahorros
+CLIENTE|265|Pedro Martín|pedromartín@email.com|917880993
+CUENTA|365|265|4676.36|Ahorros
+CLIENTE|268|María Rodríguez|maríarodríguez@email.com|909137742
+CUENTA|368|268|3001.54|Corriente
+CLIENTE|271|Juan Martín|juanmartín@email.com|950105940
+CUENTA|371|271|8441.62|Ahorros
+CLIENTE|274|Luis Pérez|luispérez@email.com|903556242
+CUENTA|374|274|9587.14|Ahorros
+CLIENTE|277|Juan García|juangarcía@email.com|976976360
+CUENTA|377|277|6474.58|Ahorros
+CLIENTE|280|María Martín|maríamartín@email.com|984158481
+CUENTA|380|280|7668.90|Ahorros
+CLIENTE|283|Ana González|anagonzález@email.com|903754006
+CUENTA|383|283|2415.20|Ahorros
+CLIENTE|286|Carmen Pérez|carmenpérez@email.com|976618672
+CUENTA|386|286|7810.36|Ahorros
+CLIENTE|289|Luis Rodríguez|luisrodríguez@email.com|999175702
+CUENTA|389|289|3354.35|Ahorros
+CLIENTE|292|Ana Sánchez|anasánchez@email.com|903331031
+CUENTA|392|292|5851.72|Corriente
+CLIENTE|295|Pedro López|pedrolópez@email.com|926887028
+CUENTA|395|295|8337.44|Corriente
+CLIENTE|298|María Rodríguez|maríarodríguez@email.com|943972253
+CUENTA|398|298|8752.31|Ahorros
+CLIENTE|301|Juan Díaz|juandíaz@email.com|993912842
+CUENTA|401|301|8201.93|Ahorros
+CLIENTE|304|Luis López|luislópez@email.com|915678730
+CUENTA|404|304|2422.43|Corriente
+CLIENTE|307|Carmen López|carmenlópez@email.com|934494478
+CUENTA|407|307|2013.79|Ahorros
+CLIENTE|310|Pedro Díaz|pedrodíaz@email.com|983928445
+CUENTA|410|310|8007.71|Corriente
+CLIENTE|313|Pedro Pérez|pedropérez@email.com|900499795
+CUENTA|413|313|7634.54|Ahorros
+CLIENTE|316|Carlos López|carloslópez@email.com|908448564
+CUENTA|416|316|6479.37|Ahorros
+CLIENTE|319|Carmen Díaz|carmendíaz@email.com|962916502
+CUENTA|419|319|1416.32|Ahorros
+CLIENTE|322|Pedro García|pedrogarcía@email.com|910372851
+CUENTA|422|322|7757.99|Corriente
+CLIENTE|325|María García|maríagarcía@email.com|988829174
+CUENTA|425|325|4972.41|Ahorros
+CLIENTE|328|Carlos González|carlosgonzález@email.com|928947140
+CUENTA|428|328|3953.84|Corriente
+CLIENTE|331|Laura Martín|lauramartín@email.com|979215246
+CUENTA|431|331|8426.46|Ahorros
+CLIENTE|334|Carmen González|carmengonzález@email.com|981943269
+CUENTA|434|334|4500.70|Corriente
+CLIENTE|337|Luis García|luisgarcía@email.com|943726119
+CUENTA|437|337|3509.52|Corriente
+CLIENTE|340|Ana Rodríguez|anarodríguez@email.com|937756615
+CUENTA|440|340|8956.96|Corriente
+CLIENTE|343|María González|maríagonzález@email.com|995531534
+CUENTA|443|343|9588.94|Corriente
+CLIENTE|346|Juan Díaz|juandíaz@email.com|904902715
+CUENTA|446|346|8373.89|Ahorros
+CLIENTE|349|Pedro Pérez|pedropérez@email.com|912565516
+CUENTA|449|349|3902.00|Ahorros
+CLIENTE|352|Juan García|juangarcía@email.com|956721840
+CUENTA|452|352|7320.35|Corriente
+CLIENTE|355|María Sánchez|maríasánchez@email.com|934752892
+CUENTA|455|355|2386.05|Corriente
+CLIENTE|358|Luis Rodríguez|luisrodríguez@email.com|984983968
+CUENTA|458|358|1700.11|Corriente
+CLIENTE|361|Juan Rodríguez|juanrodríguez@email.com|978594686
+CUENTA|461|361|6990.36|Corriente
+CLIENTE|364|Juan Díaz|juandíaz@email.com|988987922
+CUENTA|464|364|3305.12|Corriente
+CLIENTE|367|Luis García|luisgarcía@email.com|956795474
+CUENTA|467|367|2897.56|Corriente
+CLIENTE|370|Luis Martín|luismartín@email.com|996498241
+CUENTA|470|370|7879.29|Ahorros
+CLIENTE|373|Carmen Martín|carmenmartín@email.com|921650888
+CUENTA|473|373|4837.43|Ahorros
+CLIENTE|376|Pedro Pérez|pedropérez@email.com|979179361
+CUENTA|476|376|8193.18|Corriente
+CLIENTE|379|Ana González|anagonzález@email.com|947325915
+CUENTA|479|379|4536.95|Ahorros
+CLIENTE|382|Juan Pérez|juanpérez@email.com|918850954
+CUENTA|482|382|2983.59|Ahorros
+CLIENTE|385|Carlos López|carloslópez@email.com|993309798
+CUENTA|485|385|8198.66|Corriente
+CLIENTE|388|Juan Díaz|juandíaz@email.com|992225718
+CUENTA|488|388|8432.57|Ahorros
+CLIENTE|391|Ana Rodríguez|anarodríguez@email.com|976640503
+CUENTA|491|391|3848.69|Ahorros
+CLIENTE|394|María González|maríagonzález@email.com|974331884
+CUENTA|494|394|7349.46|Ahorros
+CLIENTE|397|Luis Martín|luismartín@email.com|936057543
+CUENTA|497|397|1044.49|Corriente
+CLIENTE|400|Juan López|juanlópez@email.com|913440648
+CUENTA|500|400|1185.50|Ahorros
+CLIENTE|403|María Pérez|maríapérez@email.com|933130963
+CUENTA|503|403|2113.61|Ahorros
+CLIENTE|406|Pedro Rodríguez|pedrorodríguez@email.com|957757082
+CUENTA|506|406|3123.62|Ahorros
+CLIENTE|409|Carmen Martín|carmenmartín@email.com|973621005
+CUENTA|509|409|7126.79|Ahorros
+CLIENTE|412|Pedro Martín|pedromartín@email.com|959924084
+CUENTA|512|412|5523.14|Corriente
+CLIENTE|415|Pedro Sánchez|pedrosánchez@email.com|920455347
+CUENTA|515|415|5741.28|Ahorros
+CLIENTE|418|Carmen Rodríguez|carmenrodríguez@email.com|918070600
+CUENTA|518|418|9099.14|Ahorros
+CLIENTE|421|Ana González|anagonzález@email.com|917055432
+CUENTA|521|421|2922.09|Ahorros
+CLIENTE|424|Luis González|luisgonzález@email.com|953592566
+CUENTA|524|424|7125.60|Corriente
+CLIENTE|427|Laura López|lauralópez@email.com|976047273
+CUENTA|527|427|7128.23|Corriente
+CLIENTE|430|María Rodríguez|maríarodríguez@email.com|980086507
+CUENTA|530|430|6276.80|Corriente
+CLIENTE|433|Luis García|luisgarcía@email.com|932037823
+CUENTA|533|433|6593.83|Corriente
+CLIENTE|436|Carmen Sánchez|carmensánchez@email.com|939804461
+CUENTA|536|436|1178.42|Corriente
+CLIENTE|439|Ana Sánchez|anasánchez@email.com|936462427
+CUENTA|539|439|9829.98|Ahorros
+CLIENTE|442|María Sánchez|maríasánchez@email.com|968484221
+CUENTA|542|442|2404.12|Ahorros
+CLIENTE|445|Pedro Rodríguez|pedrorodríguez@email.com|935121320
+CUENTA|545|445|9894.38|Ahorros
+CLIENTE|448|Luis Martín|luismartín@email.com|952700316
+CUENTA|548|448|5208.73|Ahorros
+CLIENTE|451|Carlos Martín|carlosmartín@email.com|968549313
+CUENTA|551|451|7532.28|Ahorros
+CLIENTE|454|Pedro Díaz|pedrodíaz@email.com|967598006
+CUENTA|554|454|2280.52|Ahorros
+CLIENTE|457|Carlos López|carloslópez@email.com|997430507
+CUENTA|557|457|1174.41|Ahorros
+CLIENTE|460|Carlos Díaz|carlosdíaz@email.com|973010149
+CUENTA|560|460|2874.72|Corriente
+CLIENTE|463|Luis Díaz|luisdíaz@email.com|948073957
+CUENTA|563|463|2413.73|Ahorros
+CLIENTE|466|Juan Sánchez|juansánchez@email.com|908745172
+CUENTA|566|466|1872.12|Ahorros
+CLIENTE|469|Juan González|juangonzález@email.com|910736422
+CUENTA|569|469|4115.72|Corriente
+CLIENTE|472|Pedro Rodríguez|pedrorodríguez@email.com|920682093
+CUENTA|572|472|5053.14|Corriente
+CLIENTE|475|Pedro Martín|pedromartín@email.com|947620516
+CUENTA|575|475|9328.22|Ahorros
+CLIENTE|478|Ana Pérez|anapérez@email.com|992079793
+CUENTA|578|478|2825.77|Ahorros
+CLIENTE|481|Laura Sánchez|laurasánchez@email.com|907730204
+CUENTA|581|481|4891.50|Ahorros
+CLIENTE|484|Carmen Martín|carmenmartín@email.com|922581130
+CUENTA|584|484|5491.32|Corriente
+CLIENTE|487|Laura García|lauragarcía@email.com|945131490
+CUENTA|587|487|8137.16|Ahorros
+CLIENTE|490|Laura López|lauralópez@email.com|951682508
+CUENTA|590|490|6775.83|Ahorros
+CLIENTE|493|Laura García|lauragarcía@email.com|996199882
+CUENTA|593|493|8126.37|Corriente
+CLIENTE|496|Pedro Martín|pedromartín@email.com|918209255
+CUENTA|596|496|6145.79|Ahorros
+CLIENTE|499|Laura González|lauragonzález@email.com|991857280
+CUENTA|599|499|2508.70|Corriente
+CLIENTE|502|Carlos Sánchez|carlossánchez@email.com|970649934
+CUENTA|602|502|4123.96|Corriente
+CLIENTE|505|Laura Pérez|laurapérez@email.com|960213130
+CUENTA|605|505|6779.48|Corriente
+CLIENTE|508|Ana López|analópez@email.com|948890249
+CUENTA|608|508|3880.15|Corriente
+CLIENTE|511|Laura García|lauragarcía@email.com|963896549
+CUENTA|611|511|5722.49|Corriente
+CLIENTE|514|María López|maríalópez@email.com|982765024
+CUENTA|614|514|6815.23|Ahorros
+CLIENTE|517|Pedro García|pedrogarcía@email.com|978198849
+CUENTA|617|517|5427.75|Ahorros
+CLIENTE|520|Laura Sánchez|laurasánchez@email.com|971940524
+CUENTA|620|520|6488.09|Ahorros
+CLIENTE|523|María López|maríalópez@email.com|933901795
+CUENTA|623|523|4893.22|Corriente
+CLIENTE|526|Luis García|luisgarcía@email.com|921829955
+CUENTA|626|526|6627.47|Corriente
+CLIENTE|529|Luis González|luisgonzález@email.com|996178975
+CUENTA|629|529|7387.04|Corriente
+CLIENTE|532|Carmen Sánchez|carmensánchez@email.com|965321041
+CUENTA|632|532|6382.30|Corriente
+CLIENTE|535|Laura Pérez|laurapérez@email.com|999629404
+CUENTA|635|535|4758.37|Ahorros
+CLIENTE|538|Pedro González|pedrogonzález@email.com|970766832
+CUENTA|638|538|3237.37|Ahorros
+CLIENTE|541|Juan González|juangonzález@email.com|978671971
+CUENTA|641|541|8060.68|Corriente
+CLIENTE|544|Juan Sánchez|juansánchez@email.com|964788122
+CUENTA|644|544|9439.29|Ahorros
+CLIENTE|547|Carmen Martín|carmenmartín@email.com|901810019
+CUENTA|647|547|6029.67|Corriente
+CLIENTE|550|Ana Pérez|anapérez@email.com|908370572
+CUENTA|650|550|9892.69|Ahorros
+CLIENTE|553|Pedro Sánchez|pedrosánchez@email.com|985898659
+CUENTA|653|553|8312.08|Ahorros
+CLIENTE|556|Luis González|luisgonzález@email.com|995208013
+CUENTA|656|556|9178.20|Ahorros
+CLIENTE|559|Pedro Díaz|pedrodíaz@email.com|927094874
+CUENTA|659|559|9448.96|Ahorros
+CLIENTE|562|Juan García|juangarcía@email.com|997507783
+CUENTA|662|562|6083.93|Ahorros
+CLIENTE|565|Carlos Martín|carlosmartín@email.com|950704664
+CUENTA|665|565|2788.21|Ahorros
+CLIENTE|568|Carlos Sánchez|carlossánchez@email.com|959378042
+CUENTA|668|568|4724.35|Ahorros
+CLIENTE|571|Laura Rodríguez|laurarodríguez@email.com|972417869
+CUENTA|671|571|2566.96|Ahorros
+CLIENTE|574|María López|maríalópez@email.com|975925460
+CUENTA|674|574|2302.38|Corriente
+CLIENTE|577|Ana García|anagarcía@email.com|929051369
+CUENTA|677|577|8984.62|Corriente
+CLIENTE|580|Ana Martín|anamartín@email.com|997094565
+CUENTA|680|580|5309.01|Ahorros
+CLIENTE|583|Pedro Martín|pedromartín@email.com|964517160
+CUENTA|683|583|8919.49|Ahorros
+CLIENTE|586|Carlos González|carlosgonzález@email.com|946555062
+CUENTA|686|586|1075.21|Ahorros
+CLIENTE|589|Carmen López|carmenlópez@email.com|978812537
+CUENTA|689|589|5487.34|Ahorros
+CLIENTE|592|Ana Sánchez|anasánchez@email.com|907876737
+CUENTA|692|592|6095.25|Corriente
+CLIENTE|595|Carmen González|carmengonzález@email.com|903465597
+CUENTA|695|595|5863.50|Ahorros
+CLIENTE|598|Carmen González|carmengonzález@email.com|934991363
+CUENTA|698|598|8670.08|Corriente
+CLIENTE|601|María García|maríagarcía@email.com|984480562
+CUENTA|701|601|4018.01|Ahorros
+CLIENTE|604|Carmen Rodríguez|carmenrodríguez@email.com|982348469
+CUENTA|704|604|6896.85|Ahorros
+CLIENTE|607|Juan Pérez|juanpérez@email.com|906850362
+CUENTA|707|607|1179.21|Ahorros
+CLIENTE|610|Carmen Pérez|carmenpérez@email.com|956709538
+CUENTA|710|610|6314.09|Ahorros
+CLIENTE|613|Pedro García|pedrogarcía@email.com|997346622
+CUENTA|713|613|9739.42|Ahorros
+CLIENTE|616|Carlos Rodríguez|carlosrodríguez@email.com|974332314
+CUENTA|716|616|6043.91|Ahorros
+CLIENTE|619|Luis Sánchez|luissánchez@email.com|986610036
+CUENTA|719|619|1850.38|Corriente
+CLIENTE|622|María García|maríagarcía@email.com|953459853
+CUENTA|722|622|2730.17|Corriente
+CLIENTE|625|Laura López|lauralópez@email.com|943064392
+CUENTA|725|625|4388.67|Ahorros
+CLIENTE|628|María López|maríalópez@email.com|900972027
+CUENTA|728|628|1114.59|Corriente
+CLIENTE|631|Pedro Martín|pedromartín@email.com|969975584
+CUENTA|731|631|1174.03|Corriente
+CLIENTE|634|Pedro Martín|pedromartín@email.com|940737424
+CUENTA|734|634|6618.83|Ahorros
+CLIENTE|637|Pedro Pérez|pedropérez@email.com|905847872
+CUENTA|737|637|8028.12|Ahorros
+CLIENTE|640|Carlos Martín|carlosmartín@email.com|943024085
+CUENTA|740|640|3687.09|Ahorros
+CLIENTE|643|Ana Pérez|anapérez@email.com|924447956
+CUENTA|743|643|3309.10|Ahorros
+CLIENTE|646|Pedro Sánchez|pedrosánchez@email.com|934246665
+CUENTA|746|646|3007.62|Corriente
+CLIENTE|649|María Sánchez|maríasánchez@email.com|967180053
+CUENTA|749|649|7147.24|Corriente
+CLIENTE|652|Carmen López|carmenlópez@email.com|984785942
+CUENTA|752|652|7669.05|Ahorros
+CLIENTE|655|María García|maríagarcía@email.com|931239307
+CUENTA|755|655|1550.00|Ahorros
+CLIENTE|658|Carmen González|carmengonzález@email.com|972508327
+CUENTA|758|658|8152.83|Ahorros
+CLIENTE|661|Pedro Díaz|pedrodíaz@email.com|973226873
+CUENTA|761|661|6509.20|Ahorros
+CLIENTE|664|Ana Díaz|anadíaz@email.com|963710558
+CUENTA|764|664|1134.03|Corriente
+CLIENTE|667|Ana Sánchez|anasánchez@email.com|993119327
+CUENTA|767|667|7006.65|Ahorros
+CLIENTE|670|Carlos Martín|carlosmartín@email.com|954733612
+CUENTA|770|670|4909.81|Ahorros
+CLIENTE|673|María Rodríguez|maríarodríguez@email.com|992623009
+CUENTA|773|673|4516.32|Corriente
+CLIENTE|676|Juan Rodríguez|juanrodríguez@email.com|966894017
+CUENTA|776|676|2935.00|Ahorros
+CLIENTE|679|Carlos Sánchez|carlossánchez@email.com|911242829
+CUENTA|779|679|3987.06|Ahorros
+CLIENTE|682|Juan González|juangonzález@email.com|994513451
+CUENTA|782|682|5188.39|Ahorros
+CLIENTE|685|Laura González|lauragonzález@email.com|906884867
+CUENTA|785|685|7966.57|Corriente
+CLIENTE|688|Ana Pérez|anapérez@email.com|990152324
+CUENTA|788|688|7674.88|Corriente
+CLIENTE|691|Laura González|lauragonzález@email.com|928738549
+CUENTA|791|691|5211.14|Corriente
+CLIENTE|694|Carlos Díaz|carlosdíaz@email.com|904566219
+CUENTA|794|694|1278.52|Ahorros
+CLIENTE|697|Juan López|juanlópez@email.com|911566358
+CUENTA|797|697|4891.43|Corriente
+CLIENTE|700|Carmen Pérez|carmenpérez@email.com|907121628
+CUENTA|800|700|4892.17|Corriente
+CLIENTE|703|Carlos González|carlosgonzález@email.com|908509016
+CUENTA|803|703|6036.43|Corriente
+CLIENTE|706|Laura López|lauralópez@email.com|957158275
+CUENTA|806|706|7469.52|Corriente
+CLIENTE|709|Pedro García|pedrogarcía@email.com|961067542
+CUENTA|809|709|3700.79|Ahorros
+CLIENTE|712|Laura López|lauralópez@email.com|950299826
+CUENTA|812|712|9566.87|Ahorros
+CLIENTE|715|Ana Sánchez|anasánchez@email.com|935002778
+CUENTA|815|715|5146.90|Ahorros
+CLIENTE|718|Laura Martín|lauramartín@email.com|911702236
+CUENTA|818|718|2492.14|Corriente
+CLIENTE|721|Ana Díaz|anadíaz@email.com|917359551
+CUENTA|821|721|4116.11|Ahorros
+CLIENTE|724|Pedro López|pedrolópez@email.com|927410018
+CUENTA|824|724|3267.66|Ahorros
+CLIENTE|727|Juan García|juangarcía@email.com|903137982
+CUENTA|827|727|1645.29|Ahorros
+CLIENTE|730|Laura Sánchez|laurasánchez@email.com|925840179
+CUENTA|830|730|8888.40|Corriente
+CLIENTE|733|Luis López|luislópez@email.com|928653582
+CUENTA|833|733|8346.14|Corriente
+CLIENTE|736|Pedro Martín|pedromartín@email.com|973079928
+CUENTA|836|736|9445.99|Corriente
+CLIENTE|739|María García|maríagarcía@email.com|901557101
+CUENTA|839|739|3197.25|Ahorros
+CLIENTE|742|Pedro Sánchez|pedrosánchez@email.com|946058868
+CUENTA|842|742|5457.72|Corriente
+CLIENTE|745|Juan Díaz|juandíaz@email.com|963411460
+CUENTA|845|745|9652.40|Corriente
+CLIENTE|748|Pedro García|pedrogarcía@email.com|946157171
+CUENTA|848|748|6536.01|Ahorros
+CLIENTE|751|Pedro Díaz|pedrodíaz@email.com|959460015
+CUENTA|851|751|1802.50|Corriente
+CLIENTE|754|Laura Martín|lauramartín@email.com|973332705
+CUENTA|854|754|5440.61|Corriente
+CLIENTE|757|Laura García|lauragarcía@email.com|906862178
+CUENTA|857|757|2862.24|Corriente
+CLIENTE|760|María González|maríagonzález@email.com|906233219
+CUENTA|860|760|7641.17|Corriente
+CLIENTE|763|Ana Martín|anamartín@email.com|999174832
+CUENTA|863|763|6913.85|Ahorros
+CLIENTE|766|Ana Sánchez|anasánchez@email.com|932010186
+CUENTA|866|766|7082.95|Ahorros
+CLIENTE|769|María Sánchez|maríasánchez@email.com|935339118
+CUENTA|869|769|6517.70|Corriente
+CLIENTE|772|Pedro Díaz|pedrodíaz@email.com|918771274
+CUENTA|872|772|2679.46|Corriente
+CLIENTE|775|María Sánchez|maríasánchez@email.com|900251773
+CUENTA|875|775|2988.68|Corriente
+CLIENTE|778|Carmen González|carmengonzález@email.com|944908627
+CUENTA|878|778|1673.65|Ahorros
+CLIENTE|781|Carlos López|carloslópez@email.com|917405101
+CUENTA|881|781|4196.47|Ahorros
+CLIENTE|784|María Martín|maríamartín@email.com|974204831
+CUENTA|884|784|6918.54|Ahorros
+CLIENTE|787|Pedro Sánchez|pedrosánchez@email.com|967590854
+CUENTA|887|787|2141.11|Ahorros
+CLIENTE|790|Laura Pérez|laurapérez@email.com|945079089
+CUENTA|890|790|7067.66|Ahorros
+CLIENTE|793|Carlos González|carlosgonzález@email.com|982499752
+CUENTA|893|793|8109.20|Ahorros
+CLIENTE|796|Carlos Sánchez|carlossánchez@email.com|914783815
+CUENTA|896|796|1860.50|Corriente
+CLIENTE|799|Carmen Pérez|carmenpérez@email.com|951233178
+CUENTA|899|799|4364.45|Ahorros
+CLIENTE|802|Juan Pérez|juanpérez@email.com|919850862
+CUENTA|902|802|1094.00|Corriente
+CLIENTE|805|Pedro Pérez|pedropérez@email.com|935243945
+CUENTA|905|805|5363.10|Corriente
+CLIENTE|808|Carmen Martín|carmenmartín@email.com|964151739
+CUENTA|908|808|7432.99|Corriente
+CLIENTE|811|Ana Martín|anamartín@email.com|988304430
+CUENTA|911|811|7814.09|Corriente
+CLIENTE|814|Carmen López|carmenlópez@email.com|970464289
+CUENTA|914|814|1104.87|Corriente
+CLIENTE|817|Pedro González|pedrogonzález@email.com|964541819
+CUENTA|917|817|4286.85|Corriente
+CLIENTE|820|Laura González|lauragonzález@email.com|962857189
+CUENTA|920|820|7409.28|Corriente
+CLIENTE|823|Pedro García|pedrogarcía@email.com|987054743
+CUENTA|923|823|5880.39|Ahorros
+CLIENTE|826|Luis Sánchez|luissánchez@email.com|983041591
+CUENTA|926|826|5247.09|Corriente
+CLIENTE|829|Ana González|anagonzález@email.com|980219949
+CUENTA|929|829|8935.45|Ahorros
+CLIENTE|832|María García|maríagarcía@email.com|937647588
+CUENTA|932|832|5914.42|Ahorros
+CLIENTE|835|Pedro Martín|pedromartín@email.com|921865868
+CUENTA|935|835|3238.88|Ahorros
+CLIENTE|838|Carlos García|carlosgarcía@email.com|992619310
+CUENTA|938|838|3831.13|Corriente
+CLIENTE|841|Laura Pérez|laurapérez@email.com|982507472
+CUENTA|941|841|8336.06|Ahorros
+CLIENTE|844|Luis Díaz|luisdíaz@email.com|982219716
+CUENTA|944|844|6778.02|Corriente
+CLIENTE|847|María Sánchez|maríasánchez@email.com|944012582
+CUENTA|947|847|2742.25|Ahorros
+CLIENTE|850|Pedro Pérez|pedropérez@email.com|956536789
+CUENTA|950|850|3435.50|Ahorros
+CLIENTE|853|Juan Díaz|juandíaz@email.com|951975221
+CUENTA|953|853|1196.89|Ahorros
+CLIENTE|856|Pedro García|pedrogarcía@email.com|980216903
+CUENTA|956|856|6366.02|Corriente
+CLIENTE|859|Juan Martín|juanmartín@email.com|910934177
+CUENTA|959|859|9913.58|Ahorros
+CLIENTE|862|María Rodríguez|maríarodríguez@email.com|989585934
+CUENTA|962|862|8116.09|Ahorros
+CLIENTE|865|Pedro Rodríguez|pedrorodríguez@email.com|906576561
+CUENTA|965|865|1681.21|Ahorros
+CLIENTE|868|Carmen Martín|carmenmartín@email.com|928578976
+CUENTA|968|868|4365.00|Ahorros
+CLIENTE|871|Ana López|analópez@email.com|949082904
+CUENTA|971|871|2915.03|Ahorros
+CLIENTE|874|Luis Rodríguez|luisrodríguez@email.com|941140108
+CUENTA|974|874|9289.80|Ahorros
+CLIENTE|877|María Rodríguez|maríarodríguez@email.com|903789017
+CUENTA|977|877|4447.09|Corriente
+CLIENTE|880|Carmen González|carmengonzález@email.com|972276274
+CUENTA|980|880|6801.88|Corriente
+CLIENTE|883|Carlos Díaz|carlosdíaz@email.com|904551245
+CUENTA|983|883|9198.86|Corriente
+CLIENTE|886|Luis Sánchez|luissánchez@email.com|932589974
+CUENTA|986|886|5531.03|Ahorros
+CLIENTE|889|Laura Pérez|laurapérez@email.com|901275463
+CUENTA|989|889|9471.00|Ahorros
+CLIENTE|892|Luis Rodríguez|luisrodríguez@email.com|989239126
+CUENTA|992|892|3360.19|Ahorros
+CLIENTE|895|Luis Martín|luismartín@email.com|902065759
+CUENTA|995|895|6599.56|Corriente
+CLIENTE|898|Laura Pérez|laurapérez@email.com|991625155
+CUENTA|998|898|4657.26|Corriente
+CLIENTE|901|Luis Díaz|luisdíaz@email.com|994391636
+CUENTA|1001|901|5209.32|Ahorros
+CLIENTE|904|Carlos Martín|carlosmartín@email.com|934970643
+CUENTA|1004|904|9801.37|Ahorros
+CLIENTE|907|María Pérez|maríapérez@email.com|903825042
+CUENTA|1007|907|9396.46|Ahorros
+CLIENTE|910|María García|maríagarcía@email.com|900925372
+CUENTA|1010|910|6086.28|Ahorros
+CLIENTE|913|Laura López|lauralópez@email.com|951270108
+CUENTA|1013|913|2406.86|Ahorros
+CLIENTE|916|Luis Díaz|luisdíaz@email.com|983920613
+CUENTA|1016|916|8015.12|Corriente
+CLIENTE|919|Pedro Díaz|pedrodíaz@email.com|919073548
+CUENTA|1019|919|5865.14|Ahorros
+CLIENTE|922|Juan González|juangonzález@email.com|914132990
+CUENTA|1022|922|4522.96|Ahorros
+CLIENTE|925|Carlos García|carlosgarcía@email.com|919506942
+CUENTA|1025|925|8335.13|Ahorros
+CLIENTE|928|Juan López|juanlópez@email.com|960740471
+CUENTA|1028|928|7907.55|Corriente
+CLIENTE|931|Carlos Díaz|carlosdíaz@email.com|945954451
+CUENTA|1031|931|2044.38|Ahorros
+CLIENTE|934|Carlos Rodríguez|carlosrodríguez@email.com|976310934
+CUENTA|1034|934|6577.32|Corriente
+CLIENTE|937|Juan García|juangarcía@email.com|907602649
+CUENTA|1037|937|6435.33|Corriente
+CLIENTE|940|Juan Sánchez|juansánchez@email.com|914978665
+CUENTA|1040|940|2989.19|Corriente
+CLIENTE|943|Ana Martín|anamartín@email.com|927765073
+CUENTA|1043|943|1871.82|Ahorros
+CLIENTE|946|Carlos Pérez|carlospérez@email.com|991772335
+CUENTA|1046|946|6474.91|Corriente
+CLIENTE|949|Ana González|anagonzález@email.com|960206770
+CUENTA|1049|949|4044.04|Corriente
+CLIENTE|952|Luis Rodríguez|luisrodríguez@email.com|989495568
+CUENTA|1052|952|5420.79|Corriente
+CLIENTE|955|Juan Díaz|juandíaz@email.com|986507568
+CUENTA|1055|955|4045.61|Corriente
+CLIENTE|958|Juan Sánchez|juansánchez@email.com|908104237
+CUENTA|1058|958|5336.39|Ahorros
+CLIENTE|961|Ana Rodríguez|anarodríguez@email.com|919139026
+CUENTA|1061|961|8986.02|Ahorros
+CLIENTE|964|Luis Pérez|luispérez@email.com|938230558
+CUENTA|1064|964|6356.51|Corriente
+CLIENTE|967|Juan Martín|juanmartín@email.com|964543284
+CUENTA|1067|967|5728.21|Corriente
+CLIENTE|970|Pedro Sánchez|pedrosánchez@email.com|917357640
+CUENTA|1070|970|5816.48|Corriente
+CLIENTE|973|Pedro García|pedrogarcía@email.com|903405232
+CUENTA|1073|973|8855.87|Ahorros
+CLIENTE|976|María Sánchez|maríasánchez@email.com|924481765
+CUENTA|1076|976|7148.79|Ahorros
+CLIENTE|979|María Pérez|maríapérez@email.com|900230635
+CUENTA|1079|979|7691.87|Ahorros
+CLIENTE|982|Carmen García|carmengarcía@email.com|986311707
+CUENTA|1082|982|8261.48|Corriente
+CLIENTE|985|Pedro Rodríguez|pedrorodríguez@email.com|980292102
+CUENTA|1085|985|6077.38|Ahorros
+CLIENTE|988|Carmen Martín|carmenmartín@email.com|933182398
+CUENTA|1088|988|3227.29|Corriente
+CLIENTE|991|Ana Sánchez|anasánchez@email.com|961575528
+CUENTA|1091|991|6592.04|Ahorros
+CLIENTE|994|Carlos González|carlosgonzález@email.com|979559341
+CUENTA|1094|994|2132.86|Ahorros
+CLIENTE|997|Juan Díaz|juandíaz@email.com|936703277
+CUENTA|1097|997|1980.26|Ahorros
+CLIENTE|1000|Ana López|analópez@email.com|905585357
+CUENTA|1100|1000|5760.16|Corriente

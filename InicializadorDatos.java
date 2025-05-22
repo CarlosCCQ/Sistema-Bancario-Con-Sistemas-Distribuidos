@@ -41,8 +41,10 @@ public class InicializadorDatos {
         for (String archivo : archivos) {
             try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(archivo))) {
                 for (int i = 1; i <= 1000; i++) {
-                    if (hashParticion(i) == 1) {
-                        int clienteId = i;
+                    int clienteId = i;
+                    int cuentaId = 100 + i;
+
+                    if (hashParticion(clienteId) == 1) {
                         String nombre = NOMBRES[random.nextInt(NOMBRES.length)] + " "
                                 + APELLIDOS[random.nextInt(APELLIDOS.length)];
                         String email = nombre.toLowerCase().replace(" ", "") + "@email.com";
@@ -50,7 +52,6 @@ public class InicializadorDatos {
 
                         writer.write(String.format("CLIENTE|%d|%s|%s|%s%n", clienteId, nombre, email, telefono));
 
-                        int cuentaId = 100 + i;
                         double saldo = 1000 + (random.nextDouble() * 9000);
                         String tipo = TIPOS_CUENTA[random.nextInt(TIPOS_CUENTA.length)];
 
@@ -71,8 +72,10 @@ public class InicializadorDatos {
         for (String archivo : archivos) {
             try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(archivo))) {
                 for (int i = 1; i <= 1000; i++) {
-                    if (hashParticion(i) == 2) {
-                        int clienteId = i;
+                    int clienteId = i;
+                    int cuentaId = 100 + i;
+
+                    if (hashParticion(clienteId) == 2) {
                         String nombre = NOMBRES[random.nextInt(NOMBRES.length)] + " "
                                 + APELLIDOS[random.nextInt(APELLIDOS.length)];
                         String email = nombre.toLowerCase().replace(" ", "") + "@email.com";
@@ -80,7 +83,6 @@ public class InicializadorDatos {
 
                         writer.write(String.format("CLIENTE|%d|%s|%s|%s%n", clienteId, nombre, email, telefono));
 
-                        int cuentaId = 100 + i;
                         double saldo = 1000 + (random.nextDouble() * 9000);
                         String tipo = TIPOS_CUENTA[random.nextInt(TIPOS_CUENTA.length)];
 
@@ -101,8 +103,10 @@ public class InicializadorDatos {
         for (String archivo : archivos) {
             try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(archivo))) {
                 for (int i = 1; i <= 1000; i++) {
-                    if (hashParticion(i) == 3) {
-                        int clienteId = i;
+                    int clienteId = i;
+                    int cuentaId = 100 + i;
+
+                    if (hashParticion(clienteId) == 3) {
                         String nombre = NOMBRES[random.nextInt(NOMBRES.length)] + " "
                                 + APELLIDOS[random.nextInt(APELLIDOS.length)];
                         String email = nombre.toLowerCase().replace(" ", "") + "@email.com";
@@ -110,7 +114,6 @@ public class InicializadorDatos {
 
                         writer.write(String.format("CLIENTE|%d|%s|%s|%s%n", clienteId, nombre, email, telefono));
 
-                        int cuentaId = 100 + i;
                         double saldo = 1000 + (random.nextDouble() * 9000);
                         String tipo = TIPOS_CUENTA[random.nextInt(TIPOS_CUENTA.length)];
 
