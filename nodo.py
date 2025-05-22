@@ -1,10 +1,10 @@
+import json
 import socket
 import threading
-import json
+import time
 import hashlib
 from pathlib import Path
-from datetime import datetime
-import time
+import sys
 
 FORMATO_FECHA = "%Y-%m-%d %H:%M:%S"
 TAMANO_PARTICIONES = 3
@@ -29,13 +29,32 @@ class Particion:
                 
                 with open(self.ruta, 'r', encoding='utf-8') as f:
                     for linea in f:
-                        data = json.loads(linea.strip())
-                        if data['tipo'] == 'cuenta':
-                            self.cuentas[data['id']] = {
-                                'id_cliente': data['id_cliente'],
-                                'saldo': data['saldo'],
-                                'tipo': data['tipo']
-                            }
+                        if linea.strip():
+                            partes = linea.strip().split('|')
+                            if len(partes) >= 4:
+                                if partes[0] == 'CLIENTE':
+                                    self.clientes[int(partes[1])] = {
+                                        'id': int(partes[1]),
+                                        'nombre': partes[2],
+                                        'email': partes[3],
+                                        'telefono': partes[4]
+                                    }
+                                elif partes[0] == 'CUENTA':
+                                    self.cuentas[int(partes[1])] = {
+                                        'id': int(partes[1]),
+                                        'id_cliente': int(partes[2]),
+                                        'saldo': float(partes[3]),
+                                        'tipo': partes[4]
+                                    }
+                                elif partes[0] == 'TRANSACCION' and len(partes) >= 7:
+                                    self.transacciones[int(partes[1])] = {
+                                        'id': int(partes[1]),
+                                        'id_origen': int(partes[2]),
+                                        'id_destino': int(partes[3]),
+                                        'monto': float(partes[4]),
+                                        'fecha_hora': partes[5],
+                                        'estado': partes[6]
+                                    }
         except Exception as e:
             print(f"Error cargando {self.ruta}: {str(e)}")
 
@@ -44,15 +63,15 @@ class Particion:
             with self.lock:
                 temp = self.ruta.with_suffix('.tmp')
                 with open(temp, 'w', encoding='utf-8') as f:
+                    for cliente_id, datos in self.clientes.items():
+                        f.write(f"CLIENTE|{cliente_id}|{datos['nombre']}|{datos['email']}|{datos['telefono']}\n")
+                    
                     for cuenta_id, datos in self.cuentas.items():
-                        json.dump({
-                            'tipo': 'cuenta',
-                            'id': cuenta_id,
-                            'id_cliente': datos['id_cliente'],
-                            'saldo': datos['saldo'],
-                            'tipo': datos['tipo']
-                        }, f)
-                        f.write('\n')
+                        f.write(f"CUENTA|{cuenta_id}|{datos['id_cliente']}|{datos['saldo']:.2f}|{datos['tipo']}\n")
+                    
+                    for trans_id, datos in self.transacciones.items():
+                        f.write(f"TRANSACCION|{trans_id}|{datos['id_origen']}|{datos['id_destino']}|{datos['monto']:.2f}|{datos['fecha_hora']}|{datos['estado']}\n")
+                
                 temp.replace(self.ruta)
         except Exception as e:
             print(f"Error guardando {self.ruta}: {str(e)}")
@@ -74,20 +93,26 @@ class NodoTrabajador:
         
         threading.Thread(target=self.iniciar_servidor, daemon=True).start()
         threading.Thread(target=self.enviar_heartbeat, daemon=True).start()
+        threading.Thread(target=self.verificar_y_reparar_replicas, daemon=True).start()
 
     def cargar_particiones(self):
         self.ruta_datos.mkdir(parents=True, exist_ok=True)
-        for p in range(1, TAMANO_PARTICIONES + 1):
-            for r in range(1, REPLICAS + 1):
-                archivo = self.ruta_datos / f"particion_{p}_rep{r}.dat"
-                if archivo.exists():
-                    self.particiones[p] = Particion(p, archivo)
-                else:
-                    self.particiones[p] = Particion(p, archivo)
-                    self.particiones[p].guardar_datos()
+        
+        if self.id == 1:
+            particiones_asignadas = [(1, [1, 2]), (2, [3]), (3, [1])]
+        else:
+            particiones_asignadas = [(1, [3]), (2, [1, 2]), (3, [2, 3])]
+        
+        for particion_id, replicas_list in particiones_asignadas:
+            for replica in replicas_list:
+                archivo = self.ruta_datos / f"particion_{particion_id}_rep{replica}.dat"
+                if particion_id not in self.particiones:
+                    self.particiones[particion_id] = Particion(particion_id, archivo)
+                    if not archivo.exists():
+                        self.particiones[particion_id].guardar_datos()
 
     def hash_particion(self, id_cuenta):
-        return (int(hashlib.md5(str(id_cuenta).encode()).hexdigest(), 16) % TAMANO_PARTICIONES) + 1
+        return (abs(int(id_cuenta)) % TAMANO_PARTICIONES) + 1
 
     def conectar_servidor(self):
         try:
@@ -141,6 +166,8 @@ class NodoTrabajador:
                 return self.obtener_particion(int(partes[1]))
             elif partes[0] == 'ACTUALIZAR_PARTICION':
                 return self.actualizar_particion(int(partes[1]), '|'.join(partes[2:]))
+            elif partes[0] == 'SINCRONIZAR':
+                return self.actualizar_particion(int(partes[1]), partes[2])
             else:
                 return "ERROR|COMANDO_INVALIDO"
         except Exception as e:
@@ -172,7 +199,19 @@ class NodoTrabajador:
             
             cuenta_origen['saldo'] -= monto
             cuenta_destino['saldo'] += monto
+            
+            trans_id = len(self.particiones[particion_id].transacciones) + 1
+            self.particiones[particion_id].transacciones[trans_id] = {
+                'id': trans_id,
+                'id_origen': origen,
+                'id_destino': destino,
+                'monto': monto,
+                'fecha_hora': time.strftime(FORMATO_FECHA),
+                'estado': 'CONFIRMADA'
+            }
+            
             self.particiones[particion_id].guardar_datos()
+            self.sincronizar_replica(particion_id)
             return "OK"
 
     def calcular_arqueo(self):
@@ -201,6 +240,55 @@ class NodoTrabajador:
             return "OK"
         except Exception as e:
             return f"ERROR|{str(e)}"
+    
+    def sincronizar_replica(self, particion_id):
+        try:
+            otro_nodo = 2 if self.id == 1 else 1
+            ip_otro = "localhost"
+            puerto_otro = 6000 if otro_nodo == 1 else 6001
+            
+            datos = json.dumps(self.particiones[particion_id].cuentas)
+            mensaje = f"SINCRONIZAR|{particion_id}|{datos}"
+            
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(3)
+            sock.connect((ip_otro, puerto_otro))
+            sock.send(mensaje.encode('utf-8'))
+            sock.close()
+        except Exception as e:
+            print(f"Error sincronizando con nodo {otro_nodo}: {str(e)}")
+    
+    def verificar_y_reparar_replicas(self):
+        while self.activo:
+            try:
+                time.sleep(30)
+                otro_nodo = 2 if self.id == 1 else 1
+                ip_otro = "localhost"
+                puerto_otro = 6000 if otro_nodo == 1 else 6001
+                
+                for particion_id in self.particiones.keys():
+                    try:
+                        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                        sock.settimeout(5)
+                        sock.connect((ip_otro, puerto_otro))
+                        sock.send(f"OBTENER_PARTICION|{particion_id}".encode('utf-8'))
+                        respuesta = sock.recv(4096).decode('utf-8')
+                        sock.close()
+                        
+                        if respuesta and not respuesta.startswith("ERROR"):
+                            with self.particiones[particion_id].lock:
+                                datos_remotos = json.loads(respuesta)
+                                datos_locales = self.particiones[particion_id].cuentas
+                                
+                                if datos_remotos != datos_locales:
+                                    for cuenta_id, datos_cuenta in datos_remotos.items():
+                                        if cuenta_id not in datos_locales:
+                                            datos_locales[cuenta_id] = datos_cuenta
+                                    self.particiones[particion_id].guardar_datos()
+                    except Exception as e:
+                        continue
+            except Exception as e:
+                continue
 
     def enviar_heartbeat(self):
         while self.activo:
@@ -224,7 +312,6 @@ class NodoTrabajador:
                 time.sleep(5)
 
 if __name__ == "__main__":
-    import sys
     if len(sys.argv) != 7:
         print("Uso: python nodo.py <id> <ip_servidor> <puerto_servidor> <ip_nodo> <puerto_nodo> <ruta_datos>")
         sys.exit(1)

@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -37,6 +36,7 @@ public class ServidorCentral {
     private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
     private final ScheduledExecutorService heartbeatScheduler = Executors.newScheduledThreadPool(1);
     private final LoadBalancer loadBalancer = new LoadBalancer();
+    private final Map<Integer, Long> ultimoHeartbeat = new ConcurrentHashMap<>();
 
     public ServidorCentral(int port) {
         this.port = port;
@@ -58,68 +58,119 @@ public class ServidorCentral {
         try (ServerSocket nodoServerSocket = new ServerSocket(port + 1)) {
             while (running) {
                 Socket nodoSocket = nodoServerSocket.accept();
-                procesarRegistroNodo(nodoSocket);
+                executor.execute(() -> procesarRegistroNodo(nodoSocket));
             }
         } catch (IOException e) {
-            if (running) System.err.println("Error en conexión nodos: " + e.getMessage());
+            if (running)
+                System.err.println("Error en conexión nodos: " + e.getMessage());
         }
     }
 
     private void procesarRegistroNodo(Socket socket) {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
-            
-            String registro = in.readLine();
-            String[] partes = registro.split("\\|");
-            int nodoId = Integer.parseInt(partes[1]);
-            String ipNodo = partes[2];
-            int puertoNodo = Integer.parseInt(partes[3]);
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
 
-            Arrays.stream(partes[4].split(";")).forEach(t -> {
-                String[] datos = t.split(":");
-                String tabla = datos[0];
-                Arrays.stream(datos[1].split(","))
-                    .map(Integer::parseInt)
-                    .forEach(p -> {
-                        String key = tabla + "_" + p;
+            String linea;
+            while ((linea = in.readLine()) != null) {
+                String[] partes = linea.split("\\|");
+
+                if ("REGISTRO".equals(partes[0])) {
+                    int nodoId = Integer.parseInt(partes[1]);
+                    String ipNodo = partes[2];
+                    int puertoNodo = Integer.parseInt(partes[3]);
+
+                    Arrays.stream(partes[4].split(",")).forEach(t -> {
+                        String[] datos = t.split(":");
+                        String tabla = datos[0];
+                        int particion = Integer.parseInt(datos[1]);
+                        String key = tabla + "_" + particion;
                         replicas.computeIfAbsent(key, k -> new CopyOnWriteArrayList<>()).add(nodoId);
                         loadBalancer.addNodo(key, nodoId);
                     });
-            });
 
-            NodoHandler nuevoNodo = new NodoHandler(nodoId, ipNodo, puertoNodo);
-            nodos.put(nodoId, nuevoNodo);
-            loadBalancer.actualizarMetricas(nodoId, nuevoNodo);
-            out.println("REGISTRO_EXITOSO");
+                    NodoHandler nuevoNodo = new NodoHandler(nodoId, ipNodo, puertoNodo);
+                    nodos.put(nodoId, nuevoNodo);
+                    loadBalancer.actualizarMetricas(nodoId, nuevoNodo);
+                    ultimoHeartbeat.put(nodoId, System.currentTimeMillis());
+                    out.println("REGISTRO_EXITOSO");
+                } else if ("HEARTBEAT".equals(partes[0])) {
+                    int nodoId = Integer.parseInt(partes[1]);
+                    ultimoHeartbeat.put(nodoId, System.currentTimeMillis());
+                    NodoHandler nodo = nodos.get(nodoId);
+                    if (nodo != null) {
+                        nodo.setActivo(true);
+                    }
+                }
+            }
         } catch (Exception e) {
-            System.err.println("Error registrando nodo: " + e.getMessage());
+            System.err.println("Error procesando nodo: " + e.getMessage());
         }
     }
 
     private void iniciarHeartbeat() {
         heartbeatScheduler.scheduleAtFixedRate(() -> {
-            nodos.forEach((id, nodo) -> {
-                try {
-                    nodo.enviarYRecibir("HEARTBEAT", 2);
-                    nodo.setActivo(true);
-                    nodo.actualizarMetricas();
-                } catch (TimeoutException e) {
-                    nodo.setActivo(false);
+            long tiempoActual = System.currentTimeMillis();
+            ultimoHeartbeat.forEach((nodoId, ultimoTiempo) -> {
+                NodoHandler nodo = nodos.get(nodoId);
+                if (nodo != null) {
+                    if ((tiempoActual - ultimoTiempo) > 15000) {
+                        nodo.setActivo(false);
+                        System.err.println("Nodo " + nodoId + " marcado como inactivo");
+                        repararNodoFallido(nodoId);
+                    }
                 }
             });
         }, 0, 10, TimeUnit.SECONDS);
     }
 
+    private void repararNodoFallido(int nodoFallido) {
+        executor.execute(() -> {
+            try {
+                Thread.sleep(5000);
+
+                replicas.forEach((particion, nodosLista) -> {
+                    if (nodosLista.contains(nodoFallido)) {
+                        List<Integer> nodosSanos = nodosLista.stream()
+                                .filter(id -> id != nodoFallido && nodos.get(id).estaActivo())
+                                .toList();
+
+                        if (!nodosSanos.isEmpty()) {
+                            try {
+                                int particionId = Integer.parseInt(particion.split("_")[1]);
+                                NodoHandler nodoSano = nodos.get(nodosSanos.get(0));
+                                String datos = nodoSano.enviarYRecibir("OBTENER_PARTICION|" + particionId, 10);
+
+                                Thread.sleep(10000);
+
+                                NodoHandler nodoReparado = nodos.get(nodoFallido);
+                                if (nodoReparado != null && nodoReparado.estaActivo()) {
+                                    nodoReparado.enviarYRecibir("ACTUALIZAR_PARTICION|" + particionId + "|" + datos,
+                                            15);
+                                    System.out
+                                            .println("Nodo " + nodoFallido + " reparado para partición " + particionId);
+                                }
+                            } catch (Exception e) {
+                                System.err.println("Error reparando nodo " + nodoFallido + ": " + e.getMessage());
+                            }
+                        }
+                    }
+                });
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+    }
+
     private void manejarCliente(Socket socket) {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
-            
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+
             String mensaje;
             while ((mensaje = in.readLine()) != null && !mensaje.isEmpty()) {
                 String[] partes = mensaje.split("\\|", 4);
                 switch (partes[0]) {
-                    case "CONSULTAR_SALDO" -> consultarSaldo(partes[1], out);
-                    case "TRANSFERIR_FONDOS" -> transferirFondos(partes[1], partes[2], partes[3], out);
+                    case "CONSULTAR_SALDO" -> consultarSaldoConFailover(partes[1], out);
+                    case "TRANSFERIR_FONDOS" -> transferirFondosConConsistencia(partes[1], partes[2], partes[3], out);
                     case "ARQUEO" -> arqueoGlobal(out);
                     default -> out.println("ERROR|OPERACION_NO_SOPORTADA");
                 }
@@ -129,64 +180,83 @@ public class ServidorCentral {
         }
     }
 
-    private void consultarSaldo(String idCuenta, PrintWriter out) {
+    private void consultarSaldoConFailover(String idCuenta, PrintWriter out) {
         int particion = hashParticion(idCuenta);
         List<Integer> nodosReplica = replicas.get("CUENTA_" + particion);
-        
+
         if (nodosReplica == null || nodosReplica.isEmpty()) {
             out.println("ERROR|PARTICION_NO_ENCONTRADA");
             return;
         }
 
-        try {
-            Integer mejorNodo = loadBalancer.seleccionarNodo("CUENTA_" + particion);
-            String respuesta = nodos.get(mejorNodo).enviarYRecibir("CONSULTAR|" + idCuenta, 5);
-            out.println(respuesta);
-        } catch (TimeoutException | NullPointerException e) {
-            out.println("ERROR|NODOS_NO_DISPONIBLES");
+        for (Integer nodoId : nodosReplica) {
+            NodoHandler nodo = nodos.get(nodoId);
+            if (nodo != null && nodo.estaActivo()) {
+                try {
+                    String respuesta = nodo.enviarYRecibir("CONSULTAR|" + idCuenta, 5);
+                    out.println(respuesta);
+                    return;
+                } catch (TimeoutException e) {
+                    nodo.setActivo(false);
+                    continue;
+                }
+            }
         }
+        out.println("ERROR|TODOS_LOS_NODOS_INACTIVOS");
     }
 
-    private void transferirFondos(String origen, String destino, String monto, PrintWriter out) {
+    private void transferirFondosConConsistencia(String origen, String destino, String monto, PrintWriter out) {
         int particionOrigen = hashParticion(origen);
         List<Integer> nodosOrigen = replicas.get("CUENTA_" + particionOrigen);
-        
+
         if (nodosOrigen == null || nodosOrigen.isEmpty()) {
             out.println("ERROR|PARTICION_NO_ENCONTRADA");
             return;
         }
 
+        List<Integer> nodosActivos = nodosOrigen.stream()
+                .filter(id -> nodos.get(id).estaActivo())
+                .toList();
+
+        if (nodosActivos.isEmpty()) {
+            out.println("ERROR|NODOS_NO_DISPONIBLES");
+            return;
+        }
+
         AtomicInteger exitos = new AtomicInteger(0);
-        List<CompletableFuture<Void>> futures = nodosOrigen.stream()
-            .map(nodoId -> CompletableFuture.runAsync(() -> procesarTransferencia(nodoId, origen, destino, monto, exitos), executor))
-            .toList();
+        AtomicInteger fallos = new AtomicInteger(0);
+        List<CompletableFuture<Void>> futures = nodosActivos.stream()
+                .map(nodoId -> CompletableFuture.runAsync(() -> {
+                    try {
+                        NodoHandler nodo = nodos.get(nodoId);
+                        String respuesta = nodo.enviarYRecibir("TRANSFERIR|" + origen + "|" + destino + "|" + monto,
+                                10);
+                        if ("OK".equals(respuesta)) {
+                            exitos.incrementAndGet();
+                        } else {
+                            fallos.incrementAndGet();
+                        }
+                    } catch (TimeoutException e) {
+                        nodos.get(nodoId).setActivo(false);
+                        fallos.incrementAndGet();
+                    }
+                }, executor))
+                .toList();
 
         try {
             CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]))
-                .get(15, TimeUnit.SECONDS);
+                    .get(20, TimeUnit.SECONDS);
 
-            if (exitos.get() >= (nodosOrigen.size() / 2 + 1)) {
+            int totalRespuestas = exitos.get() + fallos.get();
+            if (exitos.get() > 0 && exitos.get() >= (totalRespuestas / 2)) {
                 out.println("OK|TRANSFERENCIA_EXITOSA");
-                repararReplicasFallidas(nodosOrigen, particionOrigen);
             } else {
-                out.println("ERROR|CONSISTENCIA_NO_GARANTIZADA");
+                out.println("ERROR|TRANSFERENCIA_FALLIDA");
             }
         } catch (TimeoutException e) {
             out.println("ERROR|TIEMPO_EXCEDIDO");
         } catch (Exception e) {
             out.println("ERROR|ERROR_INTERNO");
-        }
-    }
-
-    private void procesarTransferencia(int nodoId, String origen, String destino, String monto, AtomicInteger exitos) {
-        NodoHandler nodo = nodos.get(nodoId);
-        if (nodo == null || !nodo.estaActivo()) return;
-
-        try {
-            String respuesta = nodo.enviarYRecibir("TRANSFERIR|" + origen + "|" + destino + "|" + monto, 10);
-            if ("OK".equals(respuesta)) exitos.incrementAndGet();
-        } catch (TimeoutException e) {
-            nodo.setActivo(false);
         }
     }
 
@@ -204,31 +274,54 @@ public class ServidorCentral {
 
     private double calcularTotalGlobal() throws TimeoutException {
         return replicas.keySet().parallelStream()
-            .filter(k -> k.startsWith("CUENTA_"))
-            .mapToDouble(k -> {
-                Integer nodoId = loadBalancer.seleccionarNodo(k);
-                try {
-                    return Double.parseDouble(nodos.get(nodoId).enviarYRecibir("ARQUEO", 10));
-                } catch (TimeoutException e) {
+                .filter(k -> k.startsWith("CUENTA_"))
+                .mapToDouble(k -> {
+                    List<Integer> nodosParticion = replicas.get(k);
+                    for (Integer nodoId : nodosParticion) {
+                        NodoHandler nodo = nodos.get(nodoId);
+                        if (nodo != null && nodo.estaActivo()) {
+                            try {
+                                String respuesta = nodo.enviarYRecibir("ARQUEO", 10);
+                                return Double.parseDouble(respuesta.split("\\|")[1]);
+                            } catch (Exception e) {
+                                continue;
+                            }
+                        }
+                    }
                     return 0.0;
-                }
-            }).sum();
+                }).sum();
     }
 
     private void bloquearOperaciones() throws TimeoutException {
         for (String key : replicas.keySet()) {
-            Integer nodoId = loadBalancer.seleccionarNodo(key);
-            nodos.get(nodoId).enviarYRecibir("BLOQUEAR_ARQUEO", 5);
+            List<Integer> nodosParticion = replicas.get(key);
+            for (Integer nodoId : nodosParticion) {
+                NodoHandler nodo = nodos.get(nodoId);
+                if (nodo != null && nodo.estaActivo()) {
+                    try {
+                        nodo.enviarYRecibir("BLOQUEAR_ARQUEO", 5);
+                        break;
+                    } catch (TimeoutException e) {
+                        continue;
+                    }
+                }
+            }
         }
     }
 
     private void desbloquearOperaciones() {
         replicas.keySet().forEach(key -> {
-            Integer nodoId = loadBalancer.seleccionarNodo(key);
-            try {
-                nodos.get(nodoId).enviarYRecibir("DESBLOQUEAR_ARQUEO", 5);
-            } catch (TimeoutException e) {
-                System.err.println("Error desbloqueando nodo " + nodoId);
+            List<Integer> nodosParticion = replicas.get(key);
+            for (Integer nodoId : nodosParticion) {
+                NodoHandler nodo = nodos.get(nodoId);
+                if (nodo != null && nodo.estaActivo()) {
+                    try {
+                        nodo.enviarYRecibir("DESBLOQUEAR_ARQUEO", 5);
+                        break;
+                    } catch (TimeoutException e) {
+                        continue;
+                    }
+                }
             }
         });
     }
@@ -238,29 +331,6 @@ public class ServidorCentral {
             return (Math.abs(Integer.parseInt(id)) % 3) + 1;
         } catch (NumberFormatException e) {
             return 1;
-        }
-    }
-
-    private void repararReplicasFallidas(List<Integer> nodosReplica, int particion) {
-        nodosReplica.parallelStream()
-            .filter(nodoId -> !nodos.get(nodoId).estaActivo())
-            .forEach(nodoId -> resincronizarNodo(nodoId, particion));
-    }
-
-    private void resincronizarNodo(int nodoId, int particion) {
-        List<Integer> nodosSanos = replicas.get("CUENTA_" + particion).stream()
-            .filter(id -> id != nodoId && nodos.get(id).estaActivo())
-            .toList();
-
-        if (!nodosSanos.isEmpty()) {
-            try {
-                NodoHandler fuente = nodos.get(nodosSanos.get(0));
-                String datos = fuente.enviarYRecibir("OBTENER_PARTICION|" + particion, 30);
-                nodos.get(nodoId).enviarYRecibir("ACTUALIZAR_PARTICION|" + particion + "|" + datos, 30);
-                nodos.get(nodoId).setActivo(true);
-            } catch (TimeoutException e) {
-                System.err.println("Fallo resincronización nodo " + nodoId);
-            }
         }
     }
 
@@ -286,13 +356,11 @@ public class ServidorCentral {
                 socket.setSoTimeout(timeout * 1000);
 
                 PrintWriter out = new PrintWriter(
-                    new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), 
-                    true
-                );
-                
+                        new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8),
+                        true);
+
                 BufferedReader in = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8)
-                );
+                        new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
 
                 out.println(mensaje);
                 String respuesta = in.readLine();
@@ -331,9 +399,9 @@ public class ServidorCentral {
 
         public Integer seleccionarNodo(String particion) {
             return nodosPorParticion.getOrDefault(particion, Collections.emptyList()).stream()
-                .filter(nodoId -> metricasNodos.get(nodoId).estaActivo())
-                .min(Comparator.comparingInt(n -> metricasNodos.get(n).carga.get()))
-                .orElse(null);
+                    .filter(nodoId -> metricasNodos.get(nodoId).estaActivo())
+                    .min(Comparator.comparingInt(n -> metricasNodos.get(n).carga.get()))
+                    .orElse(null);
         }
 
         public void actualizarMetricas(int nodoId, NodoHandler handler) {
